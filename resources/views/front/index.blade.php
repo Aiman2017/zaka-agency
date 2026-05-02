@@ -1,5 +1,24 @@
 @extends('front.layouts.main')
 
+@section('seo_title', __('Zaka-Agency – Helping Students Start Their Journey Abroad'))
+@section('seo_description', __('Your trusted partner for international student admissions, airport pickup, accommodation, and full support in 12+ countries. Start your journey today.'))
+
+@push('json_ld')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Zaka-Agency",
+  "url": "{{ config('app.url') }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ config('app.url') }}/countries",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+@endpush
+
 @section('content')
     {{-- HERO SECTION --}}
     <x-front.hero-component type="home" badge="{{ $settings->hero_badge ?? '🎓 Your Journey Starts Here' }}"

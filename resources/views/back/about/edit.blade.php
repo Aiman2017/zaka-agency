@@ -1,4 +1,5 @@
 @extends('back.layouts.main')
+@section('page_title', __('About Settings'))
 
 @section('content')
     @php

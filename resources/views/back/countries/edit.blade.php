@@ -1,4 +1,5 @@
 @extends('back.layouts.main')
+@section('page_title', __('Edit Country'))
 
 @section('content')
 @include('alert-errors')

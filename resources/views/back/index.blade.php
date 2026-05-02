@@ -1,4 +1,5 @@
 @extends('back.layouts.main')
+@section('page_title', __('Dashboard'))
 @section('content')
     <!-- Welcome Banner -->
     <div class="welcome-banner mb-4">

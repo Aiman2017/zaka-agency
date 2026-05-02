@@ -1,5 +1,8 @@
 @extends('front.layouts.main')
 
+@section('seo_title', __('Study Destinations | Countries We Serve – Zaka-Agency'))
+@section('seo_description', __('Discover all the countries where Zaka-Agency supports international students – university admissions, accommodation, and local assistance in each destination.'))
+
 @section('content')
 
     <x-front.hero-component

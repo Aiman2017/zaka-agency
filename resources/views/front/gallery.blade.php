@@ -1,5 +1,8 @@
 @extends('front.layouts.main')
 
+@section('seo_title', __('Gallery | Student Life & Campus Photos – Zaka-Agency'))
+@section('seo_description', __('Browse our gallery of student life, university campuses, and destinations across the countries where Zaka-Agency operates.'))
+
 @section('content')
     <x-front.hero-component type="Gallery" title="{{ __('Gallery') }}"
         desc="{{ __('Explore our collection of stunning images and videos.') }}" cta1Link="{{ route('front.gallery') }}"

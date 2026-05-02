@@ -1,4 +1,5 @@
 @extends('back.layouts.main')
+@section('page_title', __('Services Settings'))
 
 @section('content')
 @include('alert-errors')

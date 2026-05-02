@@ -11,8 +11,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ config('app.name', 'Zaka-agency Admin') }} — {{ $title ?? '' }}</title>
-  <meta name="description" content="{{ __('Zaka-agency Admin Dashboard — manage your platform in Arabic, English, French, or Russian.') }}" />
+  <meta name="robots" content="noindex, nofollow"/>
+  <title>@yield('page_title', 'Dashboard') | Zaka-Agency Admin</title>
+  <meta name="description" content="Zaka-Agency Admin Dashboard."/>
 
   <!-- Bootstrap 5 (RTL-aware: switches automatically for AR) -->
   <link rel="stylesheet" href="{{ $bootstrapCss }}" />

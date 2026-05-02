@@ -1,5 +1,20 @@
 @extends('front.layouts.main')
 
+@section('seo_title', __('Contact Us | Get in Touch with Zaka-Agency'))
+@section('seo_description', __('Reach out to Zaka-Agency for free consultation, questions about university admissions, airport pickup, or accommodation. We reply within 24 hours.'))
+
+@push('json_ld')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "{{ __('Contact Zaka-Agency') }}",
+  "url": "{{ url()->current() }}",
+  "description": "{{ __('Get in touch with Zaka-Agency for study abroad support.') }}"
+}
+</script>
+@endpush
+
 @section('content')
     <x-front.hero-component type="contact" title="{{ $contact->hero_title }}" desc="{{ $contact->hero_desc }}"
         cta1Link="{{ route('front.contact') }}" cta2Text="Contact Us" cta2Link="{{ route('front.contact') }}" />

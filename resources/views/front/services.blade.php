@@ -1,5 +1,25 @@
 @extends('front.layouts.main')
 
+@section('seo_title', __('Our Services | University Admission, Airport Pickup & Accommodation – Zaka-Agency'))
+@section('seo_description', __('Zaka-Agency offers complete study abroad services: university admission support, airport pickup, student accommodation, and one-on-one consultation in 12+ countries.'))
+
+@push('json_ld')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Study Abroad Consulting",
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Zaka-Agency",
+    "url": "{{ config('app.url') }}"
+  },
+  "areaServed": "Worldwide",
+  "description": "{{ __('University admission support, airport pickup, student accommodation, and one-on-one consultation.') }}"
+}
+</script>
+@endpush
+
 @section('content')
     {{-- Настройки Hero секции --}}
     <x-front.hero-component type="services" title="{{ $service['hero_title'] ?? __('Services Overview') }}"

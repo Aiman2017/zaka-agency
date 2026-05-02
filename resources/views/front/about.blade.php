@@ -1,4 +1,9 @@
 @extends('front.layouts.main')
+
+@section('seo_title', __('About Zaka-Agency | Your Trusted Study Abroad Partner'))
+@section('seo_description', __('Learn about Zaka-Agency – a team dedicated to helping international students with university admissions, housing, and full settling-in support across 12+ countries.'))
+@section('og_type', 'website')
+
 @section('content')
 
     @php

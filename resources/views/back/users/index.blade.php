@@ -1,4 +1,5 @@
 @extends('back.layouts.main')
+@section('page_title', __('Users'))
 
 @section('content')
 <div class="container-fluid py-4">
