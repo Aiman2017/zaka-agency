@@ -1,0 +1,226 @@
+/* ============================================
+   HOME SETTINGS ADMIN PANEL STYLES
+   ============================================ */
+
+/* Main Header */
+.settings-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.settings-header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.settings-header p {
+    margin: 0.5rem 0 0 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* Section Cards */
+.section-card {
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.section-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.section-card .card-header {
+    border-radius: 12px 12px 0 0;
+    border: 0;
+    padding: 1.25rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Header Gradient Variants */
+.hero-header {
+    background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%);
+    color: white;
+}
+
+.services-header {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.whyus-header {
+    background: linear-gradient(135deg, #43E97B 0%, #38F9D7 100%);
+    color: white;
+}
+
+.stats-header {
+    background: linear-gradient(135deg, #FA709A 0%, #FEE140 100%);
+    color: white;
+}
+
+.testimonials-header {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+    color: white;
+}
+
+.cta-header {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #333;
+}
+
+/* Card Body */
+.section-card .card-body {
+    padding: 1.75rem;
+}
+
+/* Form Elements */
+.form-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-control,
+.form-control-lg {
+    border-radius: 8px;
+    border: 1.5px solid #e0e0e0;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus,
+.form-control-lg:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Subsections */
+.subsection-divider {
+    background: linear-gradient(to right, transparent, #ddd, transparent);
+    height: 1px;
+    margin: 1.5rem 0;
+}
+
+.form-row-separator {
+    margin: 2rem 0 1rem 0;
+}
+
+/* Feature Groups */
+.feature-group {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 1.25rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.feature-group h6 {
+    color: #667eea;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+/* Stat Boxes */
+.stat-box {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat-box h6 {
+    color: #667eea;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Buttons */
+.btn-save-top {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 0;
+    color: white;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-save-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.btn-save-bottom {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 0;
+    color: white;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-save-bottom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    color: white;
+}
+
+/* Icon Badge */
+.icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .settings-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .settings-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .section-card .card-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .btn-save-top {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .form-label {
+        font-size: 0.85rem;
+    }
+}
