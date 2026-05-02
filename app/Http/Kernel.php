@@ -95,5 +95,6 @@ class Kernel extends HttpKernel
         'localeSessionRedirect' => LocaleSessionRedirect::class,
         'localeCookieRedirect' => LocaleCookieRedirect::class,
         'localeViewPath' => LaravelLocalizationViewPath::class,
+        'superadmin' => \App\Http\Middleware\EnsureSuperAdmin::class,
     ];
 }

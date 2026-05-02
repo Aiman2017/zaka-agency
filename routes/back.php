@@ -7,6 +7,7 @@ use App\Http\Controllers\Back\GalleryController;
 use App\Http\Controllers\Back\HomeController as MainController;
 use App\Http\Controllers\Back\HomeSettingController;
 use App\Http\Controllers\Back\ServiceController;
+use App\Http\Controllers\Back\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
@@ -36,4 +37,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('countries/{country}', [CountryController::class, 'show'])->name('countries.show');
     Route::put('countries/{country}', [CountryController::class, 'update'])->name('countries.update');
     Route::delete('countries/{country}', [CountryController::class, 'destroy'])->name('countries.destroy');
+
+    // All user management restricted to superadmin only
+    Route::middleware('superadmin')->group(function () {
+        Route::get('users', [UserController::class, 'index'])->name('users.index');
+        Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+        Route::post('users', [UserController::class, 'store'])->name('users.store');
+    });
 });

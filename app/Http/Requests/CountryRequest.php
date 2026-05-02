@@ -40,7 +40,7 @@ class CountryRequest extends FormRequest
             'fact_3_value'  => 'sometimes|nullable|string|max:50',
             'fact_3_label'  => 'sometimes|nullable|string|max:100',
             'services'              => 'sometimes|nullable|array',
-            'services.*.icon'       => 'sometimes|nullable|string|max:100',
+            'services.*.icon'       => ['sometimes', 'nullable', 'string', 'max:100', 'regex:/^bi-[a-z0-9\-]+$/'],
             'services.*.title'      => 'required_with:services.*|string|max:255',
             'services.*.desc'       => 'sometimes|nullable|string',
             'apply_btn_text'        => 'required|string|max:100',

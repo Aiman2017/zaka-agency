@@ -66,8 +66,8 @@
         </button>
     </form>
 
-    <div class="auth-footer-link">
+    {{-- <div class="auth-footer-link">
         {{ __("Don't have an account?") }}
         <a href="{{ route('register') }}">{{ __('Register') }}</a>
-    </div>
+    </div> --}}
 </x-guest-layout>

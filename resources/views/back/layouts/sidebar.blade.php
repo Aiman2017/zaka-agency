@@ -70,6 +70,16 @@
             </a>
         </li>
 
+        @if(auth()->user()?->isSuperAdmin())
+        <li class="nav-item">
+            <a href="{{ route('admin.users.index') }}"
+                class="nav-link {{ request()->is('admin/users*') ? 'active' : '' }}" data-page="users">
+                <i class="bi bi-person-plus-fill nav-icon"></i>
+                <span>{{ __('Manage Users') }}</span>
+            </a>
+        </li>
+        @endif
+
         <li class="nav-divider my-2"></li>
 
         <li class="nav-item">
@@ -91,7 +101,9 @@
         </div>
         <div class="user-info-mini ms-2 me-2">
             <span class="user-name-mini">{{ auth()->user()->name ?? 'Admin' }}</span>
-            <span class="user-role-mini">{{ __('Super Admin') }}</span>
+            <span class="user-role-mini">
+                {{ auth()->user()?->role === 'superadmin' ? __('Super Admin') : __('Admin') }}
+            </span>
         </div>
     </div>
 </nav>

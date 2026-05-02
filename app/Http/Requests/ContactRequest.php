@@ -26,15 +26,15 @@ class ContactRequest extends FormRequest
             'address'       => 'sometimes|nullable|string|max:255',
             'working_hours' => 'sometimes|nullable|string',
 
-            'social_fb' => 'sometimes|nullable|string|max:255',
-            'social_ig' => 'sometimes|nullable|string|max:255',
+            'social_fb' => 'sometimes|nullable|url|max:255',
+            'social_ig' => 'sometimes|nullable|url|max:255',
             'social_wa' => 'sometimes|nullable|string|max:50',
 
-            'faq'               => 'sometimes|nullable|array',
+            'faq'               => 'sometimes|nullable|array|max:20',
             'faq.*.question'    => 'required_with:faq.*|string|max:500',
-            'faq.*.answer'      => 'sometimes|nullable|string',
+            'faq.*.answer'      => 'sometimes|nullable|string|max:2000',
 
-            'map_src' => 'sometimes|nullable|string',
+            'map_src' => ['sometimes', 'nullable', 'string', 'max:2000', 'regex:/^https:\/\/(www\.)?google\.com\/maps\//'],
         ];
     }
 

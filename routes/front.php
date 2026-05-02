@@ -18,5 +18,5 @@ Route::group(['as' => 'front.'], function () {
     Route::get('/countries', [CountryController::class, 'index'])->name('countries');
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-    Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+    Route::post('/contact', [ContactController::class, 'send'])->middleware('throttle:5,1')->name('contact.send');
 });

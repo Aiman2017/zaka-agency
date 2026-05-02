@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Models\GalleryItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class GalleryController extends Controller
 {
@@ -39,7 +40,7 @@ class GalleryController extends Controller
         $imagePath = null;
         if ($request->hasFile('image')) {
             $file      = $request->file('image');
-            $filename  = uniqid('gallery_') . '.' . $file->getClientOriginalExtension();
+            $filename  = Str::random(40) . '.' . $file->extension();
             $file->move($dir, $filename);
             $imagePath = 'uploads/gallery/' . $filename;
         }
@@ -47,7 +48,7 @@ class GalleryController extends Controller
         $videoPath = null;
         if ($request->hasFile('video')) {
             $file      = $request->file('video');
-            $filename  = uniqid('gallery_vid_') . '.' . $file->getClientOriginalExtension();
+            $filename  = Str::random(40) . '.' . $file->extension();
             $file->move($dir, $filename);
             $videoPath = 'uploads/gallery/' . $filename;
         }
@@ -92,7 +93,7 @@ class GalleryController extends Controller
                 unlink(public_path($galleryItem->image));
             }
             $file          = $request->file('image');
-            $filename      = uniqid('gallery_') . '.' . $file->getClientOriginalExtension();
+            $filename      = Str::random(40) . '.' . $file->extension();
             $file->move($dir, $filename);
             $data['image'] = 'uploads/gallery/' . $filename;
         }
@@ -102,7 +103,7 @@ class GalleryController extends Controller
                 unlink(public_path($galleryItem->video));
             }
             $file          = $request->file('video');
-            $filename      = uniqid('gallery_vid_') . '.' . $file->getClientOriginalExtension();
+            $filename      = Str::random(40) . '.' . $file->extension();
             $file->move($dir, $filename);
             $data['video'] = 'uploads/gallery/' . $filename;
         }
