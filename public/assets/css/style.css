@@ -908,3 +908,12 @@ body[dir="rtl"] { font-family: var(--font-ar); }
   .contact-form-card { padding: 24px 16px; }
   .footer-bottom { flex-direction: column; text-align: center; }
 }
+
+/* Compact navbar at xl (1200–1399px) — prevents overflow with long-text locales like Russian */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .navbar-brand .brand-text { font-size: 1.2rem; }
+  .nav-link { padding: 6px 8px !important; font-size: 0.875rem; }
+  .navbar-nav { gap: 0 !important; }
+  .btn-primary-custom { padding: 8px 16px; font-size: 0.875rem; }
+  .lang-switcher .dropdown-toggle { padding: 5px 10px; font-size: 0.875rem; }
+}

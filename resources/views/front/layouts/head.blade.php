@@ -60,6 +60,6 @@
 {{-- ── Stylesheets ── --}}
 <link rel="stylesheet" href="{{ $bootstrapCss }}"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
-<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v={{ time() }}"/>
+<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v=1.0"/>
 </head>
 <body>

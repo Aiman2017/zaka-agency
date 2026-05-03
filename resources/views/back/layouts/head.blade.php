@@ -26,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <!-- Custom Admin CSS -->
-  <link rel="stylesheet" href="{{ asset('assets/back/css/main.css') }}?v={{ time() }}" />
+  <link rel="stylesheet" href="{{ asset('assets/back/css/main.css') }}?v=1.0" />
   <!-- Apply saved theme before render to prevent flash -->
   <script>(function(){var t=localStorage.getItem('admin_theme')||'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.setAttribute('data-bs-theme',t);})();</script>
 </head>

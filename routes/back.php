@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Back\AboutController;
+use App\Http\Controllers\Back\BlogController;
 use App\Http\Controllers\Back\ContactController;
 use App\Http\Controllers\Back\CountryController;
 use App\Http\Controllers\Back\GalleryController;
@@ -30,7 +31,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('contact', [ContactController::class, 'edit'])->name('contact.edit');
     Route::put('contact', [ContactController::class, 'update'])->name('contact.update');
     Route::patch('contact/messages/{message}/read', [ContactController::class, 'markRead'])->name('contact.messages.read');
-    Route::delete('contact/messages/{message}', [ContactController::class, 'destroyMessage'])->name('contact.messages.destroy');
+    Route::delete('contact/messages/{message}', [ContactController::class, 'destroyMessage'])->name('contact.messages.destroy')->middleware('superadmin');
+
+    // Messages inbox (dedicated page)
+    Route::get('messages', [ContactController::class, 'messages'])->name('messages.index');
+    Route::patch('messages/read-all', [ContactController::class, 'markAllRead'])->name('messages.read-all');
+
+    // Blog
+    Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('blog/create', [BlogController::class, 'create'])->name('blog.create');
+    Route::post('blog', [BlogController::class, 'store'])->name('blog.store');
+    Route::get('blog/{post}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::put('blog/{post}', [BlogController::class, 'update'])->name('blog.update');
+    Route::delete('blog/{post}', [BlogController::class, 'destroy'])->name('blog.destroy');
     Route::get('countries', [CountryController::class, 'edit'])->name('countries.edit');
     Route::get('countries/create', [CountryController::class, 'create'])->name('countries.create');
     Route::post('countries', [CountryController::class, 'store'])->name('countries.store');

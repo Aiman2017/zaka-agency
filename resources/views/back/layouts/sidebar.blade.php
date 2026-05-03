@@ -50,9 +50,32 @@
         </li>
 
         <li class="nav-item">
-            <a href="{{ route('admin.contact.edit') }}" class="nav-link" data-page="revenue">
-                <i class="bi bi-cash-stack nav-icon"></i>
-                <span>{{ __('Contact') }}</span>
+            <a href="{{ route('admin.contact.edit') }}" class="nav-link {{ request()->is('admin/contact') ? 'active' : '' }}" data-page="contact">
+                <i class="bi bi-gear-fill nav-icon"></i>
+                <span>{{ __('Contact Settings') }}</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{ route('admin.messages.index') }}"
+               class="nav-link d-flex align-items-center justify-content-between {{ request()->is('admin/messages*') ? 'active' : '' }}"
+               data-page="messages">
+                <span>
+                    <i class="bi bi-envelope-fill nav-icon"></i>
+                    <span>{{ __('Inbox') }}</span>
+                </span>
+                @if($sidebarUnread > 0)
+                <span class="badge bg-danger rounded-pill" style="font-size:.65rem;">{{ $sidebarUnread }}</span>
+                @endif
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{ route('admin.blog.index') }}"
+               class="nav-link {{ request()->is('admin/blog*') ? 'active' : '' }}"
+               data-page="blog">
+                <i class="bi bi-journal-richtext nav-icon"></i>
+                <span>{{ __('Blog') }}</span>
             </a>
         </li>
 
@@ -96,11 +119,16 @@
     </ul>
 
     <div class="sidebar-footer">
-        <div class="user-avatar-mini">
-            <img src="https://i.pravatar.cc/40?img=12" alt="Admin" />
+        @php
+            $userName = auth()->user()->name ?? 'Admin';
+            $initials = collect(explode(' ', $userName))->take(2)->map(fn($w) => strtoupper($w[0] ?? ''))->implode('');
+        @endphp
+        <div class="user-avatar-mini d-flex align-items-center justify-content-center fw-700 text-white"
+             style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#1a6fc4,#0f3460);flex-shrink:0;font-size:.85rem;letter-spacing:.5px;">
+            {{ $initials }}
         </div>
         <div class="user-info-mini ms-2 me-2">
-            <span class="user-name-mini">{{ auth()->user()->name ?? 'Admin' }}</span>
+            <span class="user-name-mini">{{ $userName }}</span>
             <span class="user-role-mini">
                 {{ auth()->user()?->role === 'superadmin' ? __('Super Admin') : __('Admin') }}
             </span>

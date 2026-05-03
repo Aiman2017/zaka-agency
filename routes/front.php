@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Front\AboutController;
+use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\CountryController;
 use App\Http\Controllers\Front\GalleryController;
@@ -19,4 +20,8 @@ Route::group(['as' => 'front.'], function () {
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::post('/contact', [ContactController::class, 'send'])->middleware('throttle:5,1')->name('contact.send');
+
+    // Blog
+    Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 });

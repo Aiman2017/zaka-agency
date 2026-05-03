@@ -186,7 +186,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="contactConsent" required />
                                         <label class="form-check-label" for="contactConsent">
-                                            I agree to be contacted by Torrist regarding my inquiry. <span
+                                            I agree to be contacted by Zaka-Agency regarding my inquiry. <span
                                                 class="text-danger">*</span>
                                         </label>
                                         <div class="invalid-feedback">You must agree before submitting.</div>

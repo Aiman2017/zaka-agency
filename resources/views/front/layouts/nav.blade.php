@@ -14,6 +14,7 @@
         <li class="nav-item"><a class="nav-link {{ request()->routeIs('front.services') ? 'active' : '' }}" href="{{ route('front.services') }}">{{ __('Services') }}</a></li>
         <li class="nav-item"><a class="nav-link {{ request()->routeIs('front.countries') ? 'active' : '' }}" href="{{ route('front.countries') }}">{{ __('Countries') }}</a></li>
         <li class="nav-item"><a class="nav-link {{ request()->routeIs('front.gallery') ? 'active' : '' }}" href="{{ route('front.gallery') }}">{{ __('Gallery') }}</a></li>
+        <li class="nav-item"><a class="nav-link {{ request()->routeIs('front.blog') || request()->routeIs('front.blog.show') ? 'active' : '' }}" href="{{ route('front.blog') }}">{{ __('Blog') }}</a></li>
         <li class="nav-item"><a class="nav-link {{ request()->routeIs('front.contact') ? 'active' : '' }}" href="{{ route('front.contact') }}">{{ __('Contact') }}</a></li>
       </ul>
       <div class="d-flex align-items-center gap-2 me-3">

@@ -4,6 +4,6 @@
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <!-- Admin JS -->
-  <script src="{{ asset('assets/back/js/main.js') }}?v={{ time() }}"></script>
+  <script src="{{ asset('assets/back/js/main.js') }}?v=1.0"></script>
 </body>
 </html>

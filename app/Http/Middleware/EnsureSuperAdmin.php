@@ -12,6 +12,10 @@ class EnsureSuperAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if (!Auth::check() || !Auth::user()->isSuperAdmin()) {
+            if ($request->expectsJson()) {
+                return response()->json(['message' => 'Access restricted to Superadmin only.'], 403);
+            }
+
             abort(403, 'Access restricted to Superadmin only.');
         }
 

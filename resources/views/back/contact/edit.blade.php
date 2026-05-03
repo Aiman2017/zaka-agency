@@ -39,13 +39,6 @@
                             <button class="nav-link text-start mb-1" data-bs-toggle="pill" data-bs-target="#tab-map" type="button">
                                 <i class="bi bi-map me-2"></i>{{ __('Map') }}
                             </button>
-                            <button class="nav-link text-start mb-1" data-bs-toggle="pill" data-bs-target="#tab-messages" type="button">
-                                <i class="bi bi-envelope me-2"></i>{{ __('Messages') }}
-                                @php $unread = $messages->where('is_read', false)->count(); @endphp
-                                @if($unread)
-                                <span class="badge bg-danger ms-1">{{ $unread }}</span>
-                                @endif
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -178,127 +171,6 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="tab-messages">
-                        <div class="card shadow-sm border-0">
-                            <div class="card-body p-4">
-                                <h5 class="fw-bold mb-4 text-primary">
-                                    {{ __('Incoming messages') }}
-                                    @if($unread ?? 0)
-                                    <span class="badge bg-danger ms-2">{{ $unread }} {{ __('new') }}</span>
-                                    @endif
-                                </h5>
-
-                                @if($messages->isEmpty())
-                                <div class="text-center py-5 text-muted">
-                                    <i class="bi bi-inbox fs-1 d-block mb-2"></i>
-                                    {{ __('No messages') }}
-                                </div>
-                                @else
-                                <div class="table-responsive">
-                                    <table class="table table-hover align-middle">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th>{{ __('Sender') }}</th>
-                                                <th>{{ __('Service / Country') }}</th>
-                                                <th>{{ __('Message') }}</th>
-                                                <th>{{ __('Date') }}</th>
-                                                <th class="text-center">{{ __('Actions') }}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            
-                                        @foreach($messages as $msg)
-                                        <tr id="msg-row-{{ $msg->id }}" class="{{ $msg->is_read ? '' : 'table-warning fw-semibold' }}">
-                                            <td>
-                                                <div>{{ $msg->name }}</div>
-                                                <small class="text-primary fw-normal">{{ $msg->email }}</small>
-                                                @if($msg->phone)
-                                                <small class="text-primary fw-normal d-block">{{ $msg->phone }}</small>
-                                                @endif
-                                            </td>
-                                            <td>
-
-                                            
-                                                <div class="small">{{ $msg->service ?: '—' }}</div>
-                                                <div class="small text-info">{{ $msg->country ?: '' }}</div>
-                                                @if($msg->nationality)
-                                                <div class="small">{{ $msg->nationality }}</div>
-                                                @endif
-                                            </td>
-                                            <td style="max-width:260px;">
-                                                <div class="small text-truncate" style="max-width:260px;" title="{{ $msg->message }}">
-                                                    {{ $msg->message }}
-                                                </div>
-                                                <a href="#" class="small text-primary" data-bs-toggle="modal" data-bs-target="#msgModal{{ $msg->id }}">
-                                                    {{ __('Read more') }}
-                                                </a>
-                                            </td>
-                                            <td class="small  text-nowrap">{{ $msg->created_at->format('d.m.Y H:i') }}</td>
-                                            <td class="text-center text-nowrap">
-                                                @if(!$msg->is_read)
-                                                <button type="button"
-                                                    class="btn btn-sm btn-outline-success rounded-pill px-2 btn-mark-read"
-                                                    data-url="{{ route('admin.contact.messages.read', $msg) }}"
-                                                    data-id="{{ $msg->id }}"
-                                                    title="{{ __('Mark as read') }}">
-                                                    <i class="bi bi-check2"></i>
-                                                </button>
-                                                @endif
-                                                {{-- <button type="button"
-                                                    class="btn btn-sm btn-outline-danger rounded-pill px-2 btn-delete-msg"
-                                                    data-url="{{ route('admin.contact.messages.destroy', $msg) }}"
-                                                    data-id="{{ $msg->id }}"
-                                                    title="{{ __('Delete') }}">
-                                                    <i class="bi bi-trash"></i>
-                                                </button> --}}
-                                            </td>
-                                        </tr>
-
-                                        <!-- Full message modal -->
-                                        <div class="modal fade" id="msgModal{{ $msg->id }}" tabindex="-1">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content rounded-4 border-0 shadow">
-                                                    <div class="modal-header border-0 pb-0">
-                                                        <div>
-                                                            <h6 class="modal-title fw-bold mb-0">{{ $msg->name }}</h6>
-                                                            <small class="text-muted">{{ $msg->email }} &bull; {{ $msg->created_at->format('d.m.Y H:i') }}</small>
-                                                        </div>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                    </div>
-                                                    <div class="modal-body pt-2">
-                                                        @if($msg->service || $msg->country || $msg->nationality)
-                                                        <div class="mb-3 d-flex flex-wrap gap-2">
-                                                            @if($msg->service) <span class="badge bg-primary-subtle text-primary">{{ $msg->service }}</span> @endif
-                                                            @if($msg->country) <span class="badge bg-secondary-subtle text-secondary">{{ $msg->country }}</span> @endif
-                                                            @if($msg->nationality) <span class="badge bg-secondary-subtle text-secondary">{{ $msg->nationality }}</span> @endif
-                                                        </div>
-                                                        @endif
-                                                        <p class="mb-0" style="white-space:pre-wrap;">{{ $msg->message }}</p>
-                                                    </div>
-                                                    <div class="modal-footer border-0 pt-0">
-                                                        @if(!$msg->is_read)
-                                                        <button type="button"
-                                                            class="btn btn-sm btn-success rounded-pill px-3 btn-mark-read"
-                                                            data-url="{{ route('admin.contact.messages.read', $msg) }}"
-                                                            data-id="{{ $msg->id }}"
-                                                            data-dismiss-modal="msgModal{{ $msg->id }}">
-                                                            <i class="bi bi-check2 me-1"></i>{{ __('Mark as read') }}
-                                                        </button>
-                                                        @endif
-                                                        <button type="button" class="btn btn-sm btn-secondary rounded-pill px-3" data-bs-dismiss="modal">{{ __('Close') }}</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -351,61 +223,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    const CSRF = document.querySelector('meta[name="csrf-token"]')?.content
-              || '{{ csrf_token() }}';
-
-    // Mark as read
-    document.addEventListener('click', async function (e) {
-        const btn = e.target.closest('.btn-mark-read');
-        if (!btn) return;
-
-        const url = btn.dataset.url;
-        const id  = btn.dataset.id;
-
-        const res = await fetch(url, {
-            method:  'PATCH',
-            headers: { 'X-CSRF-TOKEN': CSRF, 'Accept': 'application/json' },
-        });
-
-        if (res.ok) {
-            const row = document.getElementById('msg-row-' + id);
-            if (row) {
-                row.classList.remove('table-warning', 'fw-semibold');
-            }
-            btn.remove();
-
-            // close modal if triggered from inside one
-            if (btn.dataset.dismissModal) {
-                bootstrap.Modal.getInstance(document.getElementById(btn.dataset.dismissModal))?.hide();
-            }
-
-            // update unread badge counts
-            const badges = document.querySelectorAll('.badge.bg-danger');
-            badges.forEach(b => {
-                const n = parseInt(b.textContent) - 1;
-                n > 0 ? (b.textContent = n + ' новых') : b.remove();
-            });
-        }
-    });
-
-    // Delete message
-    document.addEventListener('click', async function (e) {
-        const btn = e.target.closest('.btn-delete-msg');
-        if (!btn) return;
-        if (!confirm('Удалить сообщение?')) return;
-
-        const url = btn.dataset.url;
-        const id  = btn.dataset.id;
-
-        const res = await fetch(url, {
-            method:  'DELETE',
-            headers: { 'X-CSRF-TOKEN': CSRF, 'Accept': 'application/json' },
-        });
-
-        if (res.ok) {
-            document.getElementById('msg-row-' + id)?.remove();
-        }
-    });
 });
 </script>
 @endsection
