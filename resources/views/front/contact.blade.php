@@ -165,7 +165,7 @@
                                     <select id="contactCountry" class="form-select">
                                         <option value="">-- Select Country --</option>
                                         @foreach ($countries as $country)
-                                            <option value="{{ $country->tab_name }}">{{ $country->tab_name }}</option>)
+                                            <option value="{{ $country->tab_name }}">{{ $country->tab_name }}</option>
                                         @endforeach
                                         <option>Other</option>
                                     </select>

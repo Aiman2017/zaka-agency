@@ -82,6 +82,7 @@
                                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                                             value="{{ old('email', $contact->email) }}">
                                         @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                                        <div class="form-text"><i class="bi bi-bell me-1"></i>{{ __('Contact form submissions are sent to this address.') }}</div>
                                     </div>
                                     <div class="col-12">
                                         <label class="form-label small fw-bold">{{ __('Office address') }}</label>

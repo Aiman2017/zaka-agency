@@ -24,8 +24,12 @@ class ContactController extends Controller
         $message = ContactMessage::create($request->safe()->except('consent'));
 
         try {
-            $adminEmail = optional(Contact::first())->email ?? config('mail.from.address');
-            Mail::to($adminEmail)->send(new NewContactMessage($message));
+            $adminEmail = Contact::value('email');
+            if ($adminEmail) {
+                Mail::to($adminEmail)->send(new NewContactMessage($message));
+            } else {
+                \Log::warning('Contact notification email skipped: no admin email configured in Contact Settings.');
+            }
         } catch (\Exception $e) {
             \Log::warning('Contact notification email failed: ' . $e->getMessage());
         }

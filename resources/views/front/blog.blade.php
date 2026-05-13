@@ -7,8 +7,8 @@
 
 <x-front.hero-component
     type="blog"
-    title="{{ __('Blog & Insights') }}"
-    desc="{{ __('Expert guides, student stories, and study abroad tips from our team.') }}"
+    :title="__('Blog & Insights')"
+    :desc="__('Expert guides, student stories, and study abroad tips from our team.')"
     cta1Link="{{ route('front.blog') }}"
     cta2Text="{{ __('Contact Us') }}"
     cta2Link="{{ route('front.contact') }}"

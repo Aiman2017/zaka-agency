@@ -24,12 +24,12 @@ class GalleryController extends Controller
             'country'     => 'required|string|max:100',
             'description' => 'nullable|string|max:1000',
             'sort_order'  => 'nullable|integer|min:0',
-            'image'       => 'nullable|image|max:4096',
+            'image'       => 'nullable|image|mimes:jpeg,png,gif,webp|max:4096',
             'video'       => 'nullable|mimetypes:video/mp4,video/webm,video/ogg,video/quicktime|max:102400',
         ]);
 
         $request->validate([
-            'image' => $request->hasFile('video') ? 'nullable' : 'required|image|max:4096',
+            'image' => $request->hasFile('video') ? 'nullable' : 'required|image|mimes:jpeg,png,gif,webp|max:4096',
         ], ['image.required' => 'Please upload an image or a video.']);
 
         $dir = public_path('uploads/gallery');
@@ -72,7 +72,7 @@ class GalleryController extends Controller
             'country'     => 'required|string|max:100',
             'description' => 'nullable|string|max:1000',
             'sort_order'  => 'nullable|integer|min:0',
-            'image'       => 'nullable|image|max:4096',
+            'image'       => 'nullable|image|mimes:jpeg,png,gif,webp|max:4096',
             'video'       => 'nullable|mimetypes:video/mp4,video/webm,video/ogg,video/quicktime|max:102400',
         ]);
 

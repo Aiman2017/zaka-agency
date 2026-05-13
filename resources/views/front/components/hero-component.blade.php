@@ -26,7 +26,7 @@
             <nav aria-label="breadcrumb" class="mb-3">
                 <ol class="breadcrumb justify-content-center">
                     <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                    <li class="breadcrumb-item active">{{ $title }}</li>
+                    <li class="breadcrumb-item active">{!! $title !!}</li>
                 </ol>
             </nav>
         @endif
@@ -49,7 +49,7 @@
                             <span>Abroad</span>
                         @endif
                     @else
-                        {{ $title }}
+                        {!! $title !!}
                     @endif
                 </h1>
 

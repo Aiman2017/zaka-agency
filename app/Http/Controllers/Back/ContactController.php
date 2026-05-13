@@ -28,7 +28,9 @@ class ContactController extends Controller
     // ── Dedicated inbox ──────────────────────────────────────────────────────
     public function messages(Request $request)
     {
-        $filter = $request->get('filter', 'all');
+        $filter = in_array($request->get('filter'), ['all', 'read', 'unread'], true)
+            ? $request->get('filter')
+            : 'all';
 
         $query = ContactMessage::latest();
         if ($filter === 'unread') $query->where('is_read', false);

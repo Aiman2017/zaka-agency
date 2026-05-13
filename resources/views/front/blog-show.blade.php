@@ -9,13 +9,13 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "{{ addslashes($post->title) }}",
-  "description": "{{ addslashes($post->excerpt ?: Str::limit(strip_tags($post->body), 160)) }}",
+  "headline": {!! json_encode($post->title) !!},
+  "description": {!! json_encode($post->excerpt ?: Str::limit(strip_tags($post->body), 160)) !!},
   "datePublished": "{{ ($post->published_at ?? $post->created_at)->toIso8601String() }}",
   "dateModified": "{{ $post->updated_at->toIso8601String() }}",
   "author": {
     "@type": "Person",
-    "name": "{{ addslashes($post->author?->name ?? 'Zaka-Agency') }}"
+    "name": {!! json_encode($post->author?->name ?? 'Zaka-Agency') !!}
   },
   "publisher": {
     "@type": "Organization",

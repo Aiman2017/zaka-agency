@@ -13,7 +13,7 @@ class BlogController extends Controller
         $query = Post::published()->with('author')->latest('published_at');
 
         if ($request->filled('category')) {
-            $query->where('category', $request->category);
+            $query->where('category', $request->string('category')->limit(100)->value());
         }
 
         $posts      = $query->paginate(9)->withQueryString();

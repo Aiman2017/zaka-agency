@@ -21,7 +21,7 @@ class PostRequest extends FormRequest
             'slug'         => ['required', 'string', 'max:255', Rule::unique('posts', 'slug')->ignore($postId)],
             'excerpt'      => 'nullable|string|max:600',
             'body'         => 'required|string|min:10',
-            'image'        => 'nullable|image|max:4096',
+            'image'        => 'nullable|image|mimes:jpeg,png,gif,webp|max:4096',
             'category'     => 'nullable|string|max:100',
             'is_published' => 'boolean',
             'published_at' => 'nullable|date',
