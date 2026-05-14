@@ -51,8 +51,8 @@
                             <div class="service-icon"><i class="bi {{ $service['icon'] }}"></i></div>
                             <h4>{{ $service['title'] }}</h4>
                             <p>{{ $service['description'] }}</p>
-                            <a href="{{ $service['link'] }}" class="text-primary fw-600 mt-3 d-inline-block">
-                                {{ $service['link_text'] }} <i class="bi bi-arrow-right"></i>
+                            <a href="{{ $service['link']  ?? '/contact'}}" class="text-primary fw-600 mt-3 d-inline-block">
+                                {{ $service['link_text']  ?? 'Learn More' }} <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
                     </div>
