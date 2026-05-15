@@ -40,14 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── Page Loader ── */
-  const loader = document.getElementById('page-loader');
-  if (loader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => loader.classList.add('hidden'), 400);
-    });
-  }
-
   /* ── Sticky Navbar ── */
   const navbar = document.querySelector('.navbar');
   if (navbar) {

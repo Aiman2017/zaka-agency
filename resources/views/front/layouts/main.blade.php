@@ -1,10 +1,5 @@
 @include('front.layouts.head')
 
-<!-- Loader -->
-<div id="page-loader">
-    <div class="loader-spinner"></div>
-</div>
-
 <!-- NAVBAR -->
 
 @include('front.layouts.nav')
