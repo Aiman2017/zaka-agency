@@ -21,6 +21,13 @@
     </div>
     @endif
 
+    @if(session('error'))
+    <div class="alert alert-danger alert-dismissible fade show rounded-3 shadow-sm mb-4" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    @endif
+
     <div class="card shadow-sm border-0 rounded-4">
         <div class="card-body p-0">
             @if($users->isEmpty())
@@ -38,6 +45,7 @@
                             <th class="py-3 text-uppercase small fw-bold text-muted">{{ __('Email') }}</th>
                             <th class="py-3 text-uppercase small fw-bold text-muted">{{ __('Role') }}</th>
                             <th class="py-3 text-uppercase small fw-bold text-muted">{{ __('Registered') }}</th>
+                            <th class="py-3 text-uppercase small fw-bold text-muted">{{ __('Actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,6 +78,20 @@
                                 @endif
                             </td>
                             <td class="text-muted small">{{ $user->created_at->format('d M Y') }}</td>
+                            <td>
+                                @if($user->id !== auth()->id())
+                                <form action="{{ route('admin.users.destroy', $user) }}" method="POST"
+                                      onsubmit="return confirm('{{ __('Delete this user? This cannot be undone.') }}')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger rounded-pill px-3">
+                                        <i class="bi bi-trash3-fill me-1"></i>{{ __('Delete') }}
+                                    </button>
+                                </form>
+                                @else
+                                <span class="text-muted small">—</span>
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
