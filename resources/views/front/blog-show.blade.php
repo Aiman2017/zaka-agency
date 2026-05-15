@@ -84,7 +84,10 @@
     <img src="{{ asset($post->image) }}"
          alt="{{ $post->title }}"
          class="w-100 rounded-4 shadow-lg"
-         style="max-height:480px;object-fit:cover;display:block;">
+         style="max-height:480px;object-fit:cover;display:block;"
+         width="1200" height="480"
+         fetchpriority="high"
+         decoding="async">
 </div>
 @endif
 

@@ -57,9 +57,26 @@
 {{-- ── Page-specific JSON-LD ── --}}
 @stack('json_ld')
 
-{{-- ── Stylesheets ── --}}
+{{-- ── Resource hints ── --}}
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/>
+
+{{-- ── Google Fonts (non-blocking) ── --}}
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap"/></noscript>
+
+{{-- ── Bootstrap CSS (layout-critical, synchronous) ── --}}
 <link rel="stylesheet" href="{{ $bootstrapCss }}"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>
-<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v=1.0"/>
+
+{{-- ── Bootstrap Icons (non-blocking) ── --}}
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" onload="this.onload=null;this.rel='stylesheet'"/>
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/></noscript>
+
+{{-- ── Custom CSS ── --}}
+<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v=1.1"/>
+
+{{-- ── Dark mode (inline – must run before first paint) ── --}}
+<script>(function(){var s=localStorage.getItem('torrist_theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s==='dark'||(!s&&p))document.documentElement.setAttribute('data-theme','dark');})();</script>
 </head>
 <body>
