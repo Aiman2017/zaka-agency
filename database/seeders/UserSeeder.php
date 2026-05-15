@@ -15,16 +15,16 @@ class UserSeeder extends Seeder
             [
                 'name'     => 'Ayman Al-Raidi',
                 'role'     => 'superadmin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('Ay773273111//'),
             ]
         );
 
         User::updateOrCreate(
             ['email' => 'admin@zaka-agency.com'],
             [
-                'name'     => 'Admin',
-                'role'     => 'admin',
-                'password' => Hash::make('password'),
+                'name'     => 'Zakaria',
+                'role'     => 'superadmin',
+                'password' => Hash::make('Zaka+79500146733//'),
             ]
         );
     }
