@@ -11,7 +11,7 @@ use App\Http\Controllers\Back\ServiceController;
 use App\Http\Controllers\Back\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'x7k9m-panel', 'as' => 'admin.', 'middleware' => ['auth']], function () {
 
     Route::get('/', [MainController::class, 'index'])->name('dashboard');
     Route::get('home', [HomeSettingController::class, 'edit'])->name('settings.edit');

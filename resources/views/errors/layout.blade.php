@@ -230,7 +230,7 @@
         <a href="{{ url('/') }}" class="btn-home">
             &#8962; {{ __('Go to Homepage') }}
         </a>
-        <a href="javascript:history.back()" class="btn-back">
+        <a href="{{ url('/') }}" class="btn-back">
             &#8592; {{ __('Go Back') }}
         </a>
     </div>
