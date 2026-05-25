@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-xl sticky-top">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('front.home') }}">
-      <img src="{{ asset('assets/images/logo.svg') }}" alt="Zaka-agency Logo" width="40" height="40" class="brand-logo">
+      <img src="{{ asset('assets/images/logo.jpeg') }}" alt="Zaka-agency Logo" width="40" height="40" class="brand-logo rounded-circle">
       <span class="brand-text">Zaka-<span>agency</span></span>
     </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
