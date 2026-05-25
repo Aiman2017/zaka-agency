@@ -35,7 +35,7 @@
                     <span class="section-label">{{ $service->admission_label ?? 'Service 01' }}</span>
                     <h2 class="section-title text-start">{{ $service->admission_title ?? 'University Admission Support' }}</h2>
                     <div class="section-divider" style="margin:16px 0 24px;"></div>
-                    <p class="text-muted lh-lg mb-4">{{ $service->admission_description ?? 'Getting into the right university abroad can be overwhelming. Our expert advisors guide you through every step — from shortlisting universities to submitting your application and receiving your acceptance letter.' }}</p>
+                    <p class="lh-lg mb-4">{{ $service->admission_description ?? 'Getting into the right university abroad can be overwhelming. Our expert advisors guide you through every step — from shortlisting universities to submitting your application and receiving your acceptance letter.' }}</p>
                     <div class="row g-3">
                         <div class="col-12">
                             <div class="country-feature"><i class="bi bi-check-circle-fill"></i>
@@ -62,10 +62,10 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{ $service->admission_button_link ?? 'contact.html' }}" class="btn-primary-custom mt-4 d-inline-block">{{ $service->admission_button_text ?? 'Get Started' }}</a>
+                    <a href="{{ $service->admission_button_link ?? route('front.contact') }}" class="btn-primary-custom mt-4 d-inline-block">{{ $service->admission_button_text ?? 'Get Started' }}</a>
                 </div>
                 <div class="col-lg-6 animate-fade-up" style="transition-delay:.15s;">
-                    <div style="background:var(--primary-light);border-radius:24px;padding:40px;text-align:center;">
+                    <div style="background:var(--primary-light);border-radius:24px;padding:clamp(20px,5vw,40px);text-align:center;">
                         <i class="bi bi-bank2" style="font-size:5rem;color:var(--primary);"></i>
                         <h4 class="fw-700 mt-3 mb-3">How It Works</h4>
                         <div class="d-flex flex-column gap-3 text-start">
@@ -135,11 +135,11 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{ $service->airport_button_link ?? 'contact.html' }}" class="btn-primary-custom mt-4 d-inline-block">{{ $service->airport_button_text ?? 'Book a Pickup' }}</a>
+                    <a href="{{ $service->airport_button_link ?? route('front.contact') }}" class="btn-primary-custom mt-4 d-inline-block">{{ $service->airport_button_text ?? 'Book a Pickup' }}</a>
                 </div>
                 <div class="col-lg-6 animate-fade-up" style="transition-delay:.15s;">
                     <div
-                        style="background:linear-gradient(135deg,#1a6fc4,#0d1b2a);border-radius:24px;padding:40px;color:#fff;text-align:center;">
+                        style="background:linear-gradient(135deg,#1a6fc4,#0d1b2a);border-radius:24px;padding:clamp(20px,5vw,40px);color:#fff;text-align:center;">
                         <i class="bi bi-airplane-fill" style="font-size:5rem;color:var(--secondary);"></i>
                         <h4 class="fw-700 mt-3 mb-3">What's Included</h4>
                         <div class="row g-3">
@@ -201,10 +201,10 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{ $service->accommodation_button_link ?? 'contact.html' }}" class="btn-primary-custom mt-4 d-inline-block">{{ $service->accommodation_button_text ?? 'Find Housing' }}</a>
+                    <a href="{{ $service->accommodation_button_link ?? route('front.contact') }}" class="btn-primary-custom mt-4 d-inline-block">{{ $service->accommodation_button_text ?? 'Find Housing' }}</a>
                 </div>
                 <div class="col-lg-6 animate-fade-up" style="transition-delay:.15s;">
-                    <div style="background:var(--primary-light);border-radius:24px;padding:40px;text-align:center;">
+                    <div style="background:var(--primary-light);border-radius:24px;padding:clamp(20px,5vw,40px);text-align:center;">
                         <i class="bi bi-house-heart-fill" style="font-size:5rem;color:var(--primary);"></i>
                         <h4 class="fw-700 mt-3 mb-3">Housing Options</h4>
                         <div class="d-flex flex-column gap-3">
@@ -296,10 +296,10 @@
     <!-- CTA -->
     <section style="background:linear-gradient(135deg,#1a6fc4,#0d1b2a);padding:80px 0;">
         <div class="container text-center">
-            <h2 style="font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:16px;">{{ $service->cta_title ?? 'Start With a Free Consultation' }}</h2>
-            <p style="color:rgba(255,255,255,.75);font-size:1.1rem;margin-bottom:36px;max-width:500px;margin-inline:auto;">
+            <h2 style="font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;color:#fff;margin-bottom:16px;">{{ $service->cta_title ?? 'Start With a Free Consultation' }}</h2>
+            <p style="color:rgba(255,255,255,.75);font-size:clamp(.9rem,2vw,1.1rem);margin-bottom:36px;max-width:500px;margin-inline:auto;">
                 {{ $service->cta_subtitle ?? 'Our advisors are ready to help you map out your journey.' }}</p>
-            <a href="{{ $service->cta_button_link ?? 'contact.html' }}" class="hero-btn-primary">{{ $service->cta_button_text ?? 'Book Free Session' }}</a>
+            <a href="{{ $service->cta_button_link ?? route('front.contact') }}" class="hero-btn-primary">{{ $service->cta_button_text ?? 'Book Free Session' }}</a>
         </div>
     </section>
 @endsection

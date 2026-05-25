@@ -27,7 +27,7 @@ class CountryRequest extends FormRequest
     {
         return [
             'sort_order'    => 'integer|min:0',
-            'flag'          => 'required|string|max:10',
+            'flag'          => 'required|string|max:50',
             'tab_name'      => 'required|string|max:50',
             'title'         => 'required|string|max:255',
             'desc_1'        => 'required|string',

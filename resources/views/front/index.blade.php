@@ -51,7 +51,7 @@
                             <div class="service-icon"><i class="bi {{ $service['icon'] }}"></i></div>
                             <h4>{{ $service['title'] }}</h4>
                             <p>{{ $service['description'] }}</p>
-                            <a href="{{ $service['link']  ?? '/contact'}}" class="text-primary fw-600 mt-3 d-inline-block">
+                            <a href="{{ $service['link']  ?? '/services'}}" class="text-primary fw-600 mt-3 d-inline-block">
                                 {{ $service['link_text']  ?? 'Learn More' }} <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
@@ -142,9 +142,9 @@
 
     <section style="background:linear-gradient(135deg,#1a6fc4,#0d1b2a);padding:80px 0;">
         <div class="container text-center">
-            <h2 style="font-size:2.4rem;font-weight:800;color:#fff;margin-bottom:16px;">
+            <h2 style="font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;color:#fff;margin-bottom:16px;">
                 {{ $settings->cta_title ?? 'Ready to Start Your Journey?' }}</h2>
-            <p style="color:rgba(255,255,255,.75);font-size:1.1rem;margin-bottom:36px;max-width:500px;margin-inline:auto;">
+            <p style="color:rgba(255,255,255,.75);font-size:clamp(.9rem,2vw,1.1rem);margin-bottom:36px;max-width:500px;margin-inline:auto;">
                 {{ $settings->cta_subtitle ?? 'Apply today and let our experts handle the rest.' }}
             </p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">

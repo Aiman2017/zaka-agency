@@ -248,7 +248,7 @@ body[dir="rtl"] { font-family: var(--font-ar); }
 .hero-stat { color: #fff; }
 .hero-stat strong {
   display: block;
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
   font-weight: 800;
   color: var(--secondary);
 }
@@ -387,7 +387,7 @@ body[dir="rtl"] { font-family: var(--font-ar); }
   box-shadow: var(--shadow);
   margin-top: 30px;
 }
-.country-info h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 16px; color: var(--dark); }
+.country-info h3 { font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 800; margin-bottom: 16px; color: var(--dark); }
 .country-info p { color: var(--gray-600); line-height: 1.8; margin-bottom: 24px; }
 .country-feature {
   display: flex; align-items: flex-start; gap: 12px;
@@ -568,7 +568,7 @@ body[dir="rtl"] { font-family: var(--font-ar); }
   transition: all var(--transition);
 }
 .about-stat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
-.about-stat-card strong { display: block; font-size: 2.4rem; font-weight: 800; color: var(--primary); }
+.about-stat-card strong { display: block; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; color: var(--primary); }
 .about-stat-card span { color: var(--gray-600); font-size: .95rem; }
 
 /* ── Contact ── */
@@ -638,7 +638,7 @@ body[dir="rtl"] { font-family: var(--font-ar); }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.footer-brand .brand-text { font-size: 1.6rem; font-weight: 800; }
+.footer-brand .brand-text { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 800; }
 .footer-desc { font-size: .9rem; line-height: 1.8; margin-bottom: 24px; color: rgba(255,255,255,.6); }
 .footer-title { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
 .footer-links { list-style: none; padding: 0; }
@@ -779,7 +779,13 @@ body[dir="rtl"] { font-family: var(--font-ar); }
   border-bottom: 1px solid rgba(255,255,255,0.05);
   box-shadow: 0 4px 30px rgba(0,0,0,.4) !important;
 }
-[data-theme="dark"] .navbar-brand .brand-text { color: #f8f9fa; }
+[data-theme="dark"] .navbar-brand .brand-text,
+[data-theme="dark"] .navbar-brand .brand-text span {
+  background: linear-gradient(135deg, #c084fc, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 [data-theme="dark"] .lang-switcher .dropdown-menu {
   background: rgba(22, 32, 44, 0.95);
   backdrop-filter: blur(16px);
@@ -906,6 +912,20 @@ body[dir="rtl"] { font-family: var(--font-ar); }
   .country-tab-content { padding: 24px 16px; }
   .contact-form-card { padding: 24px 16px; }
   .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 576px) {
+  .about-stat-card { padding: 20px 16px; }
+  .service-card { padding: 24px 20px; }
+  .contact-info-card { padding: 16px; }
+  .country-tab-content { padding: 20px 12px; }
+}
+
+@media (max-width: 480px) {
+  .hero-stats { gap: 14px; }
+  .hero-stat strong { font-size: 1.4rem; }
+  .about-stat-card strong { font-size: 1.5rem; }
+  .section-title { font-size: clamp(1.3rem, 5vw, 1.8rem); }
 }
 
 /* Compact navbar at xl (1200–1399px) — prevents overflow with long-text locales like Russian */

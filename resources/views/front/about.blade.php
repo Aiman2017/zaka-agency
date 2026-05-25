@@ -61,16 +61,16 @@
 
                     <div class="col-lg-6 animate-fade-up" style="transition-delay:.15s;">
                         <div
-                            style="background:linear-gradient(135deg,var(--primary),#0d1b2a);border-radius:24px;padding:48px 36px;color:#fff;text-align:center;">
+                            style="background:linear-gradient(135deg,var(--primary),#0d1b2a);border-radius:24px;padding:clamp(24px,5vw,48px) clamp(16px,4vw,36px);color:#fff;text-align:center;">
                             <i class="bi bi-mortarboard-fill" style="font-size:4rem;color:var(--secondary);"></i>
-                            <h3 style="font-size:2rem;font-weight:800;margin:20px 0 12px;">{{ $about->story_title }}</h3>
+                            <h3 style="font-size:clamp(1.4rem,3vw,2rem);font-weight:800;margin:20px 0 12px;">{{ $about->story_title }}</h3>
                             <p style="opacity:.8;line-height:1.8;">{{ $about->story_description }}</p>
                             <div class="row g-3 mt-3">
                                 @foreach ($storyStats as $stat)
                                     @if ($stat['value'])
                                         <div class="col-4">
                                             <strong
-                                                style="font-size:1.8rem;color:var(--secondary);display:block;">{{ $stat['value'] }}</strong>
+                                                style="font-size:clamp(1.2rem,2.5vw,1.8rem);color:var(--secondary);display:block;">{{ $stat['value'] }}</strong>
                                             <small style="opacity:.7;">{{ $stat['label'] }}</small>
                                         </div>
                                     @endif

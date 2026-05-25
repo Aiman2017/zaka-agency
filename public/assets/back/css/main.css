@@ -1109,6 +1109,10 @@ ul { list-style: none; }
 @media (max-width: 480px) {
   .lang-btn { padding: 3px 6px; font-size: .72rem; }
   .stat-card { padding: 16px; }
+  .settings-header { padding: 20px 16px; }
+  .settings-header h1 { font-size: 1.25rem; }
+  .breadcrumb { max-width: 180px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; flex-wrap: nowrap; }
+  .breadcrumb-item + .breadcrumb-item { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 120px; }
 }
 
 /* ══════════════════════════════════════════════
