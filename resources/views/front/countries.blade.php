@@ -39,7 +39,7 @@
           data-bs-toggle="tab"
           data-bs-target="#country-{{ $country->id }}"
           type="button" role="tab">
-          <span class="country-flag">{{ $country->flag }}</span>{{ $country->tab_name }}
+          <span class="country-flag fi fi-{{ strtolower($country->flag) }}"></span>{{ $country->tab_name }}
         </button>
       </li>
       @endforeach

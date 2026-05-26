@@ -40,7 +40,7 @@
                 <div class="card-body p-4">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center gap-3">
-                            <span style="font-size:2.2rem;line-height:1;">{{ $country->flag }}</span>
+                            <span class="fi fi-{{ strtolower($country->flag) }}" style="font-size:2rem;border-radius:3px;"></span>
                             <div>
                                 <h5 class="fw-bold mb-0">{{ $country->tab_name }}</h5>
                                 <small class="text-muted">Sort order: {{ $country->sort_order }}</small>
