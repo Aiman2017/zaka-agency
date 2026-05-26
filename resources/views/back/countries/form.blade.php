@@ -71,7 +71,7 @@
                 <div class="card shadow-sm border-0 rounded-4 bg-primary text-white">
                     <div class="card-body p-3 text-center">
                         <div id="preview-flag" style="font-size:2.5rem;line-height:1;">
-                            {{ old('flag', $country->flag ?? '🌍') }}
+                            <span class="fi fi-{{ strtolower(old('flag', $country->flag ?? 'un')) }}" style="border-radius:4px;"></span>
                         </div>
                         <div id="preview-name" class="fw-bold mt-2">
                             {{ old('tab_name', $country->tab_name ?? 'Tab Name') }}
@@ -95,12 +95,13 @@
 
                                 <div class="row g-3">
                                     <div class="col-md-3">
-                                        <label class="form-label small fw-bold">Flag Emoji</label>
+                                        <label class="form-label small fw-bold">Flag Code</label>
                                         <input type="text" name="flag" id="inp-flag"
-                                            class="form-control text-center @error('flag') is-invalid @enderror"
-                                            style="font-size:1.5rem;"
+                                            class="form-control text-center text-uppercase @error('flag') is-invalid @enderror"
+                                            maxlength="2"
                                             value="{{ old('flag', $country->flag ?? '') }}"
-                                            placeholder="🌍">
+                                            placeholder="US">
+                                        <div class="form-text">ISO 2-letter code (e.g. us, gb, de, fr)</div>
                                         @error('flag') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="col-md-4">
@@ -317,7 +318,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ── Live preview ──────────────────────────────────────────────
     document.getElementById('inp-flag')?.addEventListener('input', function () {
-        document.getElementById('preview-flag').textContent = this.value || '🌍';
+        const code = (this.value || 'un').toLowerCase();
+        document.getElementById('preview-flag').innerHTML =
+            `<span class="fi fi-${code}" style="border-radius:4px;"></span>`;
     });
     document.getElementById('inp-tab-name')?.addEventListener('input', function () {
         document.getElementById('preview-name').textContent = this.value || 'Tab Name';

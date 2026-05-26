@@ -3,7 +3,9 @@
         <div class="row g-4">
             <div class="col-lg-4 col-md-6">
                 <div class="footer-brand d-flex align-items-center gap-2 mb-3">
-                    <i class="bi bi-compass brand-icon" style="font-size: 1.8rem;"></i>
+                    <img src="{{ asset('assets/images/logo.jpeg') }}" alt="Zaka-agency Logo" width="40" height="40"
+                        class="brand-logo rounded-circle">
+
                     <span class="brand-text">Zaka-<span>agency</span></span>
                 </div>
                 <p class="footer-desc">
@@ -43,19 +45,20 @@
                 <h6 class="footer-title">{{ __('Contact Info') }}</h6>
                 @if ($contactInfo)
                     <ul class="footer-links">
-                    <li><a href="tel:{{ $contactInfo->phone}}"><i
-                                class="bi bi-telephone me-2"></i>{{ $contactInfo->phone }}</a>
-                    </li>
-                    <li><a href="mailto:{{ $contactInfo->email ?? 'info@zaka-agency.com' }}"><i
-                                class="bi bi-envelope me-2"></i>{{ $contactInfo->email }}</a>
-                    </li>
-                    <li><a href="{{ $contactInfo->map_src }}" target="_blank"><i class="bi bi-geo-alt me-2"></i>{{ __($contactInfo->address) }}</a></li>
-                    <li><a href="#"><i
-                                class="bi bi-clock me-2"></i>{{ $contactInfo->working_hours ?? __('Mon–Sat, 9AM–6PM') }}</a>
-                    </li>
-                </ul>
+                        <li><a href="tel:{{ $contactInfo->phone }}"><i
+                                    class="bi bi-telephone me-2"></i>{{ $contactInfo->phone }}</a>
+                        </li>
+                        <li><a href="mailto:{{ $contactInfo->email ?? 'info@zaka-agency.com' }}"><i
+                                    class="bi bi-envelope me-2"></i>{{ $contactInfo->email }}</a>
+                        </li>
+                        <li><a href="{{ $contactInfo->map_src }}" target="_blank"><i
+                                    class="bi bi-geo-alt me-2"></i>{{ __($contactInfo->address) }}</a></li>
+                        <li><a href="#"><i
+                                    class="bi bi-clock me-2"></i>{{ $contactInfo->working_hours ?? __('Mon–Sat, 9AM–6PM') }}</a>
+                        </li>
+                    </ul>
                 @endif
-                
+
             </div>
         </div>
         <div class="footer-bottom">
