@@ -362,7 +362,7 @@
                         <div class="col-md-6">
                             <label class="form-label">{{ __('Button 1 Link') }}</label>
                             <input type="text" name="cta_button1_link" class="form-control"
-                                value="{{ $settings->cta_button1_link ?? '{{ route('front.apply') }}' }}">
+                                value="{{ $settings->cta_button1_link ??  route('front.contact')  }}">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">{{ __('Button 2 Text') }}</label>
@@ -372,7 +372,7 @@
                         <div class="col-md-6">
                             <label class="form-label">{{ __('Button 2 Link') }}</label>
                             <input type="text" name="cta_button2_link" class="form-control"
-                                value="{{ $settings->cta_button2_link ?? '{{ route('front.contact') }}' }}">
+                                value="{{ $settings->cta_button2_link ?? route('front.contact') }}">
                         </div>
                     </div>
                 </div>
