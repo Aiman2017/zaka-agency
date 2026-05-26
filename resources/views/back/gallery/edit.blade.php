@@ -9,12 +9,12 @@
     {{-- Page Header --}}
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
         <div>
-            <h2 class="h4 fw-bold mb-1" style="color:var(--text-primary)">Gallery Management</h2>
-            <p class="text-muted mb-0 small">Add, edit, and organize your gallery photos by country</p>
+            <h2 class="h4 fw-bold mb-1" style="color:var(--text-primary)">{{ __('Gallery Management') }}</h2>
+            <p class="text-muted mb-0 small">{{ __('Add, edit, and organize your gallery photos by country') }}</p>
         </div>
         <button class="btn btn-primary rounded-pill px-4 shadow-sm flex-shrink-0"
                 data-bs-toggle="modal" data-bs-target="#addGalleryModal">
-            <i class="bi bi-plus-lg me-2"></i>Add Photo
+            <i class="bi bi-plus-lg me-2"></i>{{ __('Add Photo') }}
         </button>
     </div>
 
@@ -31,7 +31,7 @@
                         </div>
                         <div>
                             <div class="h4 mb-0 fw-bold">{{ $items->count() }}</div>
-                            <div class="small opacity-75">Total Items</div>
+                            <div class="small opacity-75">{{ __('Total Items') }}</div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                         </div>
                         <div>
                             <div class="h4 mb-0 fw-bold">{{ $items->whereNotNull('video')->count() }}</div>
-                            <div class="small opacity-75">Videos</div>
+                            <div class="small opacity-75">{{ __('Videos') }}</div>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         </div>
                         <div>
                             <div class="h4 mb-0 fw-bold">{{ $countries->count() }}</div>
-                            <div class="small opacity-75">Countries</div>
+                            <div class="small opacity-75">{{ __('Countries') }}</div>
                         </div>
                     </div>
                 </div>
@@ -76,9 +76,9 @@
     {{-- Filter Tabs --}}
     @if ($items->isNotEmpty())
         <div class="d-flex flex-wrap align-items-center gap-2 mb-4">
-            <span class="text-muted small fw-semibold me-1 d-none d-sm-inline">Filter:</span>
+            <span class="text-muted small fw-semibold me-1 d-none d-sm-inline">{{ __('Filter:') }}</span>
             <button class="btn btn-dark btn-sm rounded-pill px-3 gallery-filter active" data-filter="all">
-                <i class="bi bi-grid-3x3-gap-fill me-1"></i>All
+                <i class="bi bi-grid-3x3-gap-fill me-1"></i>{{ __('All') }}
                 <span class="badge bg-white text-dark ms-1 fw-bold">{{ $items->count() }}</span>
             </button>
             @foreach ($countries as $country)
@@ -98,11 +98,11 @@
                  style="width:100px;height:100px">
                 <i class="bi bi-images fs-1 text-muted opacity-50"></i>
             </div>
-            <h5 class="fw-bold text-muted">No photos yet</h5>
-            <p class="text-muted small mb-4">Start building your gallery by uploading the first photo.</p>
+            <h5 class="fw-bold text-muted">{{ __('No photos yet') }}</h5>
+            <p class="text-muted small mb-4">{{ __('Start building your gallery by uploading the first photo.') }}</p>
             <button class="btn btn-primary rounded-pill px-4"
                     data-bs-toggle="modal" data-bs-target="#addGalleryModal">
-                <i class="bi bi-plus-lg me-2"></i>Add First Photo
+                <i class="bi bi-plus-lg me-2"></i>{{ __('Add First Photo') }}
             </button>
         </div>
     @else
@@ -123,7 +123,7 @@
                                     <i class="bi bi-play-circle-fill"></i>
                                 </div>
                                 <span class="position-absolute top-0 start-0 m-2 badge bg-dark bg-opacity-75 rounded-pill">
-                                    <i class="bi bi-camera-video-fill me-1"></i>Video
+                                    <i class="bi bi-camera-video-fill me-1"></i>{{ __('Video') }}
                                 </span>
                             @elseif ($item->image)
                                 <img src="{{ asset($item->image) }}" alt="{{ $item->title }}" class="gallery-img">
@@ -159,9 +159,9 @@
                                             data-video="{{ asset($item->video) }}"
                                             data-title="{{ $item->title }}"
                                             data-bs-toggle="modal" data-bs-target="#watchVideoModal"
-                                            title="Watch video">
+                                            title="{{ __('Watch video') }}">
                                         <i class="bi bi-play-fill"></i>
-                                        <span class="d-none d-md-inline ms-1">Watch</span>
+                                        <span class="d-none d-md-inline ms-1">{{ __('Watch') }}</span>
                                     </button>
                                 @endif
                                 <button class="btn btn-outline-secondary btn-sm rounded-3 flex-grow-1 gallery-edit-btn"
@@ -173,14 +173,14 @@
                                         data-image="{{ $item->image ? asset($item->image) : '' }}"
                                         data-video="{{ $item->video ? asset($item->video) : '' }}"
                                         data-bs-toggle="modal" data-bs-target="#editGalleryModal"
-                                        title="Edit">
-                                    <i class="bi bi-pencil me-1"></i>Edit
+                                        title="{{ __('Edit') }}">
+                                    <i class="bi bi-pencil me-1"></i>{{ __('Edit') }}
                                 </button>
                                 <form method="POST" action="{{ route('admin.gallery.destroy', $item) }}"
                                       class="gallery-delete-form d-flex">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger btn-sm rounded-3" title="Delete">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm rounded-3" title="{{ __('Delete') }}">
                                         <i class="bi bi-trash3"></i>
                                     </button>
                                 </form>
@@ -204,7 +204,7 @@
 
                 <div class="modal-header border-0 px-3 px-sm-4 pt-4 pb-2">
                     <h5 class="modal-title fw-bold" id="addGalleryModalLabel">
-                        <i class="bi bi-plus-circle-fill me-2 text-primary"></i>Add New Photo
+                        <i class="bi bi-plus-circle-fill me-2 text-primary"></i>{{ __('Add New Photo') }}
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
@@ -215,11 +215,11 @@
                     <div class="d-flex gap-2 mb-3">
                         <button type="button" class="btn btn-primary btn-sm rounded-pill flex-grow-1 add-media-toggle active"
                                 id="addToggleImage" onclick="switchAddMedia('image')">
-                            <i class="bi bi-image me-1"></i>Photo
+                            <i class="bi bi-image me-1"></i>{{ __('Photo') }}
                         </button>
                         <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill flex-grow-1 add-media-toggle"
                                 id="addToggleVideo" onclick="switchAddMedia('video')">
-                            <i class="bi bi-camera-video me-1"></i>Video
+                            <i class="bi bi-camera-video me-1"></i>{{ __('Video') }}
                         </button>
                     </div>
 
@@ -228,8 +228,8 @@
                         <div class="upload-zone rounded-3 border-2 border-dashed text-center p-3 mb-3 position-relative" id="addUploadZone">
                             <div id="addUploadPlaceholder">
                                 <i class="bi bi-cloud-arrow-up fs-2 text-primary opacity-75"></i>
-                                <p class="fw-semibold text-muted mt-2 mb-0 small">Click or tap to upload image</p>
-                                <p class="small text-muted mt-1 mb-0">JPG, PNG, WebP — max 4 MB</p>
+                                <p class="fw-semibold text-muted mt-2 mb-0 small">{{ __('Click or tap to upload image') }}</p>
+                                <p class="small text-muted mt-1 mb-0">{{ __('JPG, PNG, WebP — max 4 MB') }}</p>
                             </div>
                             <img id="addImagePreview" class="d-none rounded-2 w-100"
                                  style="max-height:180px;object-fit:cover" alt="Preview">
@@ -245,8 +245,8 @@
                         <div class="upload-zone rounded-3 border-2 border-dashed text-center p-3 mb-3 position-relative" id="addVideoUploadZone">
                             <div id="addVideoPlaceholder">
                                 <i class="bi bi-camera-video fs-2 text-warning opacity-75"></i>
-                                <p class="fw-semibold text-muted mt-2 mb-0 small">Click or tap to upload video</p>
-                                <p class="small text-muted mt-1 mb-0">MP4, WebM, MOV — max 100 MB</p>
+                                <p class="fw-semibold text-muted mt-2 mb-0 small">{{ __('Click or tap to upload video') }}</p>
+                                <p class="small text-muted mt-1 mb-0">{{ __('MP4, WebM, MOV — max 100 MB') }}</p>
                             </div>
                             <video id="addVideoPreview" class="d-none rounded-2 w-100" style="max-height:180px" controls muted></video>
                             <input type="file" id="addVideoInput" name="video"
@@ -258,10 +258,10 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold small">Title <span class="text-danger">*</span></label>
+                        <label class="form-label fw-semibold small">{{ __('Title') }} <span class="text-danger">*</span></label>
                         <input type="text" name="title"
                                class="form-control @error('title') is-invalid @enderror"
-                               placeholder="e.g. Harvard Campus" value="{{ old('title') }}" required>
+                               placeholder="{{ __('e.g. Harvard Campus') }}" value="{{ old('title') }}" required>
                         @error('title')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -269,16 +269,16 @@
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold small">
-                            Description
-                            <span class="text-muted fw-normal">(optional, max 1000)</span>
+                            {{ __('Description') }}
+                            <span class="text-muted fw-normal">({{ __('optional') }}, max 1000)</span>
                         </label>
                         <textarea name="description" class="form-control" rows="2"
-                                  placeholder="Description (optional)" maxlength="1000">{{ old('description') }}</textarea>
+                                  placeholder="{{ __('Description (optional)') }}" maxlength="1000">{{ old('description') }}</textarea>
                     </div>
 
                     <div class="row g-2 g-sm-3 mb-3">
                         <div class="col-8 col-sm-8">
-                            <label class="form-label fw-semibold small">Country / Category <span class="text-danger">*</span></label>
+                            <label class="form-label fw-semibold small">{{ __('Country / Category') }} <span class="text-danger">*</span></label>
                             <input type="text" name="country"
                                    class="form-control @error('country') is-invalid @enderror"
                                    placeholder="e.g. USA" list="countryDatalist" value="{{ old('country') }}" required>
@@ -292,7 +292,7 @@
                             @enderror
                         </div>
                         <div class="col-4 col-sm-4">
-                            <label class="form-label fw-semibold small">Sort Order</label>
+                            <label class="form-label fw-semibold small">{{ __('Sort Order') }}</label>
                             <input type="number" name="sort_order" class="form-control"
                                    value="{{ old('sort_order', 0) }}" min="0">
                         </div>
@@ -301,9 +301,9 @@
 
                 <div class="modal-footer border-0 px-3 px-sm-4 py-3">
                     <div class="d-grid d-sm-flex justify-content-sm-end gap-2 w-100">
-                        <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
                         <button type="submit" class="btn btn-primary rounded-pill px-4 shadow-sm">
-                            <i class="bi bi-cloud-upload me-2"></i>Upload & Save
+                            <i class="bi bi-cloud-upload me-2"></i>{{ __('Upload & Save') }}
                         </button>
                     </div>
                 </div>
@@ -322,7 +322,7 @@
 
                 <div class="modal-header border-0 px-3 px-sm-4 pt-4 pb-2">
                     <h5 class="modal-title fw-bold">
-                        <i class="bi bi-pencil-fill me-2 text-warning"></i>Edit Photo
+                        <i class="bi bi-pencil-fill me-2 text-warning"></i>{{ __('Edit Photo') }}
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
@@ -340,12 +340,12 @@
                                  id="editImgOverlay"
                                  style="inset:0;background:rgba(0,0,0,.45);opacity:0;transition:.2s">
                                 <span class="text-white fw-semibold small">
-                                    <i class="bi bi-camera-fill me-2"></i>Change Photo
+                                    <i class="bi bi-camera-fill me-2"></i>{{ __('Change Photo') }}
                                 </span>
                             </div>
                             <input type="file" id="editImageInput" name="image" accept="image/*" class="d-none">
                         </div>
-                        <p class="small text-muted mb-3">Tap the image to replace it.</p>
+                        <p class="small text-muted mb-3">{{ __('Tap the image to replace it.') }}</p>
                     </div>
 
                     {{-- Current video --}}
@@ -357,31 +357,31 @@
                             <input type="file" id="editVideoInput" name="video"
                                    accept="video/mp4,video/webm,video/ogg,video/quicktime" class="d-none">
                         </div>
-                        <p class="small text-muted mb-3">Tap the video to replace it.</p>
+                        <p class="small text-muted mb-3">{{ __('Tap the video to replace it.') }}</p>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-semibold small">Title <span class="text-danger">*</span></label>
+                        <label class="form-label fw-semibold small">{{ __('Title') }} <span class="text-danger">*</span></label>
                         <input type="text" name="title" id="editTitle" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-semibold small">
-                            Description
-                            <span class="text-muted fw-normal">(optional, max 1000)</span>
+                            {{ __('Description') }}
+                            <span class="text-muted fw-normal">({{ __('optional') }}, max 1000)</span>
                         </label>
                         <textarea name="description" id="editDescription" class="form-control" rows="2"
-                                  placeholder="Description (optional)" maxlength="1000"></textarea>
+                                  placeholder="{{ __('Description (optional)') }}" maxlength="1000"></textarea>
                     </div>
 
                     <div class="row g-2 g-sm-3 mb-3">
                         <div class="col-8 col-sm-8">
-                            <label class="form-label fw-semibold small">Country / Category <span class="text-danger">*</span></label>
+                            <label class="form-label fw-semibold small">{{ __('Country / Category') }} <span class="text-danger">*</span></label>
                             <input type="text" name="country" id="editCountry" class="form-control"
                                    list="countryDatalist" required>
                         </div>
                         <div class="col-4 col-sm-4">
-                            <label class="form-label fw-semibold small">Sort Order</label>
+                            <label class="form-label fw-semibold small">{{ __('Sort Order') }}</label>
                             <input type="number" name="sort_order" id="editSortOrder" class="form-control" min="0">
                         </div>
                     </div>
@@ -389,9 +389,9 @@
 
                 <div class="modal-footer border-0 px-3 px-sm-4 py-3">
                     <div class="d-grid d-sm-flex justify-content-sm-end gap-2 w-100">
-                        <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
                         <button type="submit" class="btn btn-warning rounded-pill px-4 fw-semibold shadow-sm">
-                            <i class="bi bi-check-lg me-2"></i>Save Changes
+                            <i class="bi bi-check-lg me-2"></i>{{ __('Save Changes') }}
                         </button>
                     </div>
                 </div>

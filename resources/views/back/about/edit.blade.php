@@ -26,8 +26,8 @@
 
     <div class="container-fluid">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="h3 mb-0 text-gray-800">Edit About Us Page</h2>
-            <button type="submit" form="aboutForm" class="btn btn-success px-4">Update About Page</button>
+            <h2 class="h3 mb-0 text-gray-800">{{ __('Edit About Us Page') }}</h2>
+            <button type="submit" form="aboutForm" class="btn btn-success px-4">{{ __('Update About Page') }}</button>
         </div>
 
         @include('alert-errors')
@@ -41,15 +41,15 @@
                     <ul class="nav nav-tabs border-bottom-0" id="aboutTabs" role="tablist">
                         <li class="nav-item">
                             <button class="nav-link active py-3 px-4" data-bs-toggle="tab" data-bs-target="#who-we-are"
-                                type="button">1. Who We Are</button>
+                                type="button">1. {{ __('Who We Are') }}</button>
                         </li>
                         <li class="nav-item">
                             <button class="nav-link py-3 px-4" data-bs-toggle="tab" data-bs-target="#mission-vision"
-                                type="button">2. Mission & Vision</button>
+                                type="button">2. {{ __('Mission & Vision') }}</button>
                         </li>
                         <li class="nav-item">
                             <button class="nav-link py-3 px-4" data-bs-toggle="tab" data-bs-target="#stats"
-                                type="button">3. Statistics</button>
+                                type="button">3. {{ __('Statistics') }}</button>
                         </li>
                     </ul>
                 </div>
@@ -61,10 +61,10 @@
                         <div class="tab-pane fade show active" id="who-we-are">
                             <div class="row">
                                 <div class="col-lg-7">
-                                    <h5 class="text-primary mb-3">Main Content</h5>
+                                    <h5 class="text-primary mb-3">{{ __('Main Content') }}</h5>
                                     <div class="row g-3">
                                         <div class="col-md-4">
-                                            <label class="form-label">Label</label>
+                                            <label class="form-label">{{ __('Label') }}</label>
                                             <input type="text" name="who_label"
                                                 class="form-control @error('who_label') is-invalid @enderror"
                                                 value="{{ old('who_label', $about->who_label) }}">
@@ -73,7 +73,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-8">
-                                            <label class="form-label">Title</label>
+                                            <label class="form-label">{{ __('Title') }}</label>
                                             <input type="text" name="who_title"
                                                 class="form-control @error('who_title') is-invalid @enderror"
                                                 value="{{ old('who_title', $about->who_title) }}">
@@ -82,14 +82,14 @@
                                             @enderror
                                         </div>
                                         <div class="col-12">
-                                            <label class="form-label">Description Paragraph 1</label>
+                                            <label class="form-label">{{ __('Description Paragraph 1') }}</label>
                                             <textarea name="who_description_1" class="form-control @error('who_description_1') is-invalid @enderror" rows="3">{{ old('who_description_1', $about->who_description_1) }}</textarea>
                                             @error('who_description_1')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="col-12">
-                                            <label class="form-label">Description Paragraph 2</label>
+                                            <label class="form-label">{{ __('Description Paragraph 2') }}</label>
                                             <textarea name="who_description_2" class="form-control @error('who_description_2') is-invalid @enderror" rows="2">{{ old('who_description_2', $about->who_description_2) }}</textarea>
                                             @error('who_description_2')
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
 
-                                    <h5 class="text-primary mt-4 mb-3">Checklist Items</h5>
+                                    <h5 class="text-primary mt-4 mb-3">{{ __('Checklist Items') }}</h5>
                                     <div class="row g-3">
                                         @foreach ($checkItems as $item)
                                             <div class="col-md-6">
@@ -115,8 +115,8 @@
 
                                 <div class="col-lg-5">
                                     <div class="p-4 rounded bg-dark text-white">
-                                        <h5 class="mb-3">Our Story Box (Right Side)</h5>
-                                        <label class="form-label text-white-50">Story Title</label>
+                                        <h5 class="mb-3">{{ __('Our Story Box (Right Side)') }}</h5>
+                                        <label class="form-label text-white-50">{{ __('Story Title') }}</label>
                                         <input type="text" name="story_title"
                                             class="form-control mb-3 bg-secondary text-white border-0 @error('story_title') is-invalid @enderror"
                                             value="{{ old('story_title', $about->story_title) }}">
@@ -124,7 +124,7 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
 
-                                        <label class="form-label text-white-50">Story Description</label>
+                                        <label class="form-label text-white-50">{{ __('Story Description') }}</label>
                                         <textarea name="story_description"
                                             class="form-control mb-3 bg-secondary text-white border-0 @error('story_description') is-invalid @enderror"
                                             rows="4">{{ old('story_description', $about->story_description) }}</textarea>
@@ -135,8 +135,8 @@
                                         <div class="row g-2">
                                             @foreach ($storyStats as $stat)
                                                 <div class="col-4">
-                                                    <label class="small text-white-50">Stat {{ $stat['num'] }}
-                                                        Value</label>
+                                                    <label class="small text-white-50">{{ __('Stat') }} {{ $stat['num'] }}
+                                                        {{ __('Value') }}</label>
                                                     <input type="text" name="{{ $stat['value'] }}"
                                                         class="form-control form-control-sm bg-secondary text-white border-0"
                                                         value="{{ old($stat['value'], $about->{$stat['value']}) }}">
@@ -156,7 +156,7 @@
                         <div class="tab-pane fade" id="mission-vision">
                             <div class="row g-4">
                                 <div class="col-md-6">
-                                    <label class="form-label"> Description Section</label>
+                                    <label class="form-label">{{ __('Description Section') }}</label>
                                     <input type="text" name="mission_section_label"
                                         class="form-control mb-2 @error('mission_section_label') is-invalid @enderror"
                                         value="{{ old('mission_section_label', $about->mission_section_label) }}">
@@ -165,7 +165,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Title Section</label>
+                                    <label class="form-label">{{ __('Title Section') }}</label>
                                     <input type="text" name="mission_label"
                                         class="form-control mb-2 @error('mission_label') is-invalid @enderror"
                                         value="{{ old('mission_label', $about->mission_label) }}">
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card border p-3">
-                                        <h5 class="text-primary"><i class="bi bi-bullseye me-2"></i>Mission</h5>
+                                        <h5 class="text-primary"><i class="bi bi-bullseye me-2"></i>{{ __('Mission') }}</h5>
                                         <label class="form-label">Title</label>
                                         <input type="text" name="mission_title"
                                             class="form-control mb-2 @error('mission_title') is-invalid @enderror"
@@ -184,13 +184,13 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
 
-                                        <label class="form-label">Main Text</label>
+                                        <label class="form-label">{{ __('Main Text') }}</label>
                                         <textarea name="mission_text" class="form-control mb-3 @error('mission_text') is-invalid @enderror" rows="4">{{ old('mission_text', $about->mission_text) }}</textarea>
                                         @error('mission_text')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
 
-                                        <label class="form-label">List Items</label>
+                                        <label class="form-label">{{ __('List Items') }}</label>
                                         <input type="text" name="mission_item1" class="form-control mb-2"
                                             placeholder="Item 1"
                                             value="{{ old('mission_item1', $about->mission_item1) }}">
@@ -204,7 +204,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card border p-3">
-                                        <h5 class="text-info"><i class="bi bi-eye-fill me-2"></i>Vision</h5>
+                                        <h5 class="text-info"><i class="bi bi-eye-fill me-2"></i>{{ __('Vision') }}</h5>
                                         <label class="form-label">Title</label>
                                         <input type="text" name="vision_title"
                                             class="form-control mb-2 @error('vision_title') is-invalid @enderror"
@@ -213,13 +213,13 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
 
-                                        <label class="form-label">Main Text</label>
+                                        <label class="form-label">{{ __('Main Text') }}</label>
                                         <textarea name="vision_text" class="form-control mb-3 @error('vision_text') is-invalid @enderror" rows="4">{{ old('vision_text', $about->vision_text) }}</textarea>
                                         @error('vision_text')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
 
-                                        <label class="form-label">List Items</label>
+                                        <label class="form-label">{{ __('List Items') }}</label>
                                         <input type="text" name="vision_item1" class="form-control mb-2"
                                             placeholder="Item 1" value="{{ old('vision_item1', $about->vision_item1) }}">
                                         <input type="text" name="vision_item2" class="form-control mb-2"
@@ -233,13 +233,13 @@
 
                         {{-- Tab 3: Statistics --}}
                         <div class="tab-pane fade" id="stats">
-                            <h5 class="text-primary mb-4">Counter Statistics</h5>
+                            <h5 class="text-primary mb-4">{{ __('Counter Statistics') }}</h5>
                             <div class="row g-3">
                                 @foreach ($counters as $counter)
                                     <div class="col-md-3">
                                         <div class="p-3 border rounded" style="background: var(--bg-page); border-color: var(--border-color) !important;">
-                                            <label class="form-label">Stat {{ $counter['num'] }}</label>
-                                            <label class="form-label">Number</label>
+                                            <label class="form-label">{{ __('Stat') }} {{ $counter['num'] }}</label>
+                                            <label class="form-label">{{ __('Number') }}</label>
                                             <input type="text" name="{{ $counter['number'] }}"
                                                 class="form-control mb-2 @error($counter['number']) is-invalid @enderror"
                                                 value="{{ old($counter['number'], $about->{$counter['number']}) }}">
@@ -247,12 +247,12 @@
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
 
-                                            <label class="form-label">Suffix (+ / %)</label>
+                                            <label class="form-label">{{ __('Suffix (+ / %)') }}</label>
                                             <input type="text" name="{{ $counter['suffix'] }}"
                                                 class="form-control mb-2"
                                                 value="{{ old($counter['suffix'], $about->{$counter['suffix']}) }}">
 
-                                            <label class="form-label">Description</label>
+                                            <label class="form-label">{{ __('Description') }}</label>
                                             <input type="text" name="{{ $counter['text'] }}"
                                                 class="form-control @error($counter['text']) is-invalid @enderror"
                                                 value="{{ old($counter['text'], $about->{$counter['text']}) }}">

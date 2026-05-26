@@ -6,11 +6,11 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h2 class="h3 mb-0 text-gray-800 fw-bold">Countries</h2>
-            <p class="text-muted small mb-0">Manage destination countries shown on the front page</p>
+            <h2 class="h3 mb-0 text-gray-800 fw-bold">{{ __('Countries') }}</h2>
+            <p class="text-muted small mb-0">{{ __('Manage destination countries shown on the front page') }}</p>
         </div>
         <a href="{{ route('admin.countries.create') }}" class="btn btn-primary rounded-pill px-4 shadow-sm">
-            <i class="bi bi-plus-lg me-2"></i>Add Country
+            <i class="bi bi-plus-lg me-2"></i>{{ __('Add Country') }}
         </a>
     </div>
 
@@ -25,10 +25,10 @@
     <div class="card shadow-sm border-0 rounded-4">
         <div class="card-body text-center py-5">
             <i class="bi bi-globe2 text-muted" style="font-size:3rem;"></i>
-            <h5 class="mt-3 text-muted">No countries yet</h5>
-            <p class="text-muted small">Click "Add Country" to get started.</p>
+            <h5 class="mt-3 text-muted">{{ __('No countries yet') }}</h5>
+            <p class="text-muted small">{{ __('Click "Add Country" to get started.') }}</p>
             <a href="{{ route('admin.countries.create') }}" class="btn btn-primary rounded-pill px-4 mt-2">
-                <i class="bi bi-plus-lg me-1"></i>Add First Country
+                <i class="bi bi-plus-lg me-1"></i>{{ __('Add First Country') }}
             </a>
         </div>
     </div>
@@ -43,11 +43,11 @@
                             <span class="fi fi-{{ strtolower($country->flag) }}" style="font-size:2rem;border-radius:3px;"></span>
                             <div>
                                 <h5 class="fw-bold mb-0">{{ $country->tab_name }}</h5>
-                                <small class="text-muted">Sort order: {{ $country->sort_order }}</small>
+                                <small class="text-muted">{{ __('Sort order') }}: {{ $country->sort_order }}</small>
                             </div>
                         </div>
                         <span class="badge rounded-pill {{ $country->is_active ? 'bg-success' : 'bg-secondary' }} px-3">
-                            {{ $country->is_active ? 'Active' : 'Hidden' }}
+                            {{ $country->is_active ? __('Active') : __('Hidden') }}
                         </span>
                     </div>
 
@@ -70,7 +70,7 @@
                 <div class="card-footer bg-transparent border-top-0 px-4 pb-4 pt-0 d-flex gap-2">
                     <a href="{{ route('admin.countries.show', $country) }}"
                         class="btn btn-sm btn-outline-primary rounded-pill flex-fill">
-                        <i class="bi bi-pencil me-1"></i>Edit
+                        <i class="bi bi-pencil me-1"></i>{{ __('Edit') }}
                     </a>
                     <button type="button"
                         class="btn btn-sm btn-outline-danger rounded-pill px-3 btn-delete-country"
@@ -92,7 +92,7 @@
 document.addEventListener('click', async function (e) {
     const btn = e.target.closest('.btn-delete-country');
     if (!btn) return;
-    if (!confirm('Delete "' + btn.dataset.name + '"?')) return;
+    if (!confirm('{{ __('Delete') }} "' + btn.dataset.name + '"?')) return;
 
     const res = await fetch(btn.dataset.url, {
         method:  'DELETE',

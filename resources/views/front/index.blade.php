@@ -21,24 +21,24 @@
 
 @section('content')
     {{-- HERO SECTION --}}
-    <x-front.hero-component type="home" badge="{{ $settings->hero_badge ?? '🎓 Your Journey Starts Here' }}"
+    <x-front.hero-component type="home" badge="{{ $settings->hero_badge ?? __('🎓 Your Journey Starts Here') }}"
         title="{{ $settings->hero_title ?? '' }}" desc="{{ $settings->hero_desc ?? '' }}"
-        cta1Text="{{ $settings->hero_cta1_text ?? 'Apply Now' }}" cta1Link="{{ $settings->hero_cta1_link ?? '#' }}"
-        cta2Text="{{ $settings->hero_cta2_text ?? 'Contact Us' }}" cta2Link="{{ $settings->hero_cta2_link ?? '#' }}"
-        visualTitle="{{ $settings->hero_visual_title ?? 'Your Global Education Hub' }}"
-        item1="{{ $settings->hero_visual_item1 ?? 'University Admission' }}"
-        item2="{{ $settings->hero_visual_item2 ?? 'Airport Pickup' }}"
-        item3="{{ $settings->hero_visual_item3 ?? 'Accommodation' }}"
-        item4="{{ $settings->hero_visual_item4 ?? 'Student Support' }}" />
+        cta1Text="{{ $settings->hero_cta1_text ?? __('Apply Now') }}" cta1Link="{{ $settings->hero_cta1_link ?? '#' }}"
+        cta2Text="{{ $settings->hero_cta2_text ?? __('Contact Us') }}" cta2Link="{{ $settings->hero_cta2_link ?? '#' }}"
+        visualTitle="{{ $settings->hero_visual_title ?? __('Your Global Education Hub') }}"
+        item1="{{ $settings->hero_visual_item1 ?? __('University Admission') }}"
+        item2="{{ $settings->hero_visual_item2 ?? __('Airport Pickup') }}"
+        item3="{{ $settings->hero_visual_item3 ?? __('Accommodation') }}"
+        item4="{{ $settings->hero_visual_item4 ?? __('Student Support') }}" />
 
     <section class="py-6 py-md-7" style="padding-top:90px;padding-bottom:90px;">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="section-label">{{ $settings->services_label ?? 'What We Offer' }}</span>
-                <h2 class="section-title">{{ $settings->services_title ?? 'Our Core Services' }}</h2>
+                <span class="section-label">{{ $settings->services_label ?? __('What We Offer') }}</span>
+                <h2 class="section-title">{{ $settings->services_title ?? __('Our Core Services') }}</h2>
                 <div class="section-divider"></div>
                 <p class="section-subtitle">
-                    {{ $settings->services_subtitle ?? 'End-to-end support for international students — from application to settling in.' }}
+                    {{ $settings->services_subtitle ?? __('End-to-end support for international students — from application to settling in.') }}
                 </p>
             </div>
 
@@ -52,7 +52,7 @@
                             <h4>{{ $service['title'] }}</h4>
                             <p>{{ $service['description'] }}</p>
                             <a href="{{ $service['link']  ?? '/services'}}" class="text-primary fw-600 mt-3 d-inline-block">
-                                {{ $service['link_text']  ?? 'Learn More' }} <i class="bi bi-arrow-right"></i>
+                                {{ $service['link_text']  ?? __('Learn More') }} <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -67,12 +67,12 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5">
-                    <span class="section-label">{{ $settings->whyus_label ?? 'Why Choose Us' }}</span>
-                    <h2 class="section-title text-start">{{ $settings->whyus_title ?? 'Trusted by Thousands of Students' }}
+                    <span class="section-label">{{ $settings->whyus_label ?? __('Why Choose Us') }}</span>
+                    <h2 class="section-title text-start">{{ $settings->whyus_title ?? __('Trusted by Thousands of Students') }}
                     </h2>
                     <div class="section-divider" style="margin:16px 0 24px;"></div>
                     <p class="text-muted lh-lg mb-4">
-                        {{ $settings->whyus_description ?? 'Since 2012, we\'ve been the go-to partner for students.' }}</p>
+                        {{ $settings->whyus_description ?? __('Since 2012, we\'ve been the go-to partner for students.') }}</p>
 
                     <div class="d-flex flex-column gap-3">
 
@@ -83,14 +83,14 @@
                                     class="bi {{ $settings->whyus_feature1_icon ?? 'bi-shield-check-fill' }} text-primary fs-5"></i>
                             </div>
                             <div>
-                                <h6 class="fw-700 mb-1">{{ $settings->whyus_feature1_title ?? 'Verified & Accredited' }}
+                                <h6 class="fw-700 mb-1">{{ $settings->whyus_feature1_title ?? __('Verified & Accredited') }}
                                 </h6>
                                 <small
-                                    class="text-muted">{{ $settings->whyus_feature1_subtitle ?? 'Official partnerships with 50+ universities' }}</small>
+                                    class="text-muted">{{ $settings->whyus_feature1_subtitle ?? __('Official partnerships with 50+ universities') }}</small>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn-primary-custom mt-4 d-inline-block">About Us</a>
+                    <a href="#" class="btn-primary-custom mt-4 d-inline-block">{{ __('About Us') }}</a>
                 </div>
 
                 <div class="col-lg-7">
@@ -101,7 +101,7 @@
                                 <strong>
                                     {{ $settings->stat1_value ?? '5000+' }}
                                 </strong>
-                                <span>{{ $settings->stat1_label ?? 'Students Helped' }}</span>
+                                <span>{{ $settings->stat1_label ?? __('Students Helped') }}</span>
                             </div>
                         </div>
 
@@ -111,7 +111,7 @@
                                 <strong>
                                     {{ $settings->stat2_value ?? '50+' }}
                                 </strong>
-                                <span>{{ $settings->stat2_label ?? 'Partner Universities' }}</span>
+                                <span>{{ $settings->stat2_label ?? __('Partner Universities') }}</span>
                             </div>
                         </div>
 
@@ -121,7 +121,7 @@
                                 <strong>
                                     {{ $settings->stat3_value ?? '12+' }}
                                 </strong>
-                                <span>{{ $settings->stat3_label ?? 'Countries' }}</span>
+                                <span>{{ $settings->stat3_label ?? __('Countries') }}</span>
                             </div>
                         </div>
 
@@ -131,7 +131,7 @@
                                 <strong>
                                     {{ $settings->stat4_value ?? '98%' }}
                                 </strong>
-                                <span>{{ $settings->stat4_label ?? 'Satisfaction Rate' }}</span>
+                                <span>{{ $settings->stat4_label ?? __('Satisfaction Rate') }}</span>
                             </div>
                         </div>
                     </div>
@@ -143,13 +143,13 @@
     <section style="background:linear-gradient(135deg,#1a6fc4,#0d1b2a);padding:80px 0;">
         <div class="container text-center">
             <h2 style="font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;color:#fff;margin-bottom:16px;">
-                {{ $settings->cta_title ?? 'Ready to Start Your Journey?' }}</h2>
+                {{ $settings->cta_title ?? __('Ready to Start Your Journey?') }}</h2>
             <p style="color:rgba(255,255,255,.75);font-size:clamp(.9rem,2vw,1.1rem);margin-bottom:36px;max-width:500px;margin-inline:auto;">
-                {{ $settings->cta_subtitle ?? 'Apply today and let our experts handle the rest.' }}
+                {{ $settings->cta_subtitle ?? __('Apply today and let our experts handle the rest.') }}
             </p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
                 <a href="{{ $settings->cta_button1_link ?? route('front.contact') }}"
-                    class="hero-btn-primary">{{ $settings->cta_button1_text ?? 'Apply Now' }}</a>
+                    class="hero-btn-primary">{{ $settings->cta_button1_text ?? __('Apply Now') }}</a>
             </div>
         </div>
     </section>

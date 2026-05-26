@@ -15,23 +15,23 @@
             <div>
                 <div class="d-flex align-items-center gap-2 mb-1">
                     <a href="{{ route('admin.countries.edit') }}" class="text-muted text-decoration-none small">
-                        <i class="bi bi-arrow-left me-1"></i>Countries
+                        <i class="bi bi-arrow-left me-1"></i>{{ __('Countries') }}
                     </a>
                 </div>
                 <h2 class="h3 mb-0 text-gray-800 fw-bold">
-                    {{ $isEdit ? 'Edit: ' . $country->tab_name : 'Add New Country' }}
+                    {{ $isEdit ? __('Edit') . ': ' . $country->tab_name : __('Add New Country') }}
                 </h2>
-                <p class="text-muted small mb-0">Fill in all sections then save</p>
+                <p class="text-muted small mb-0">{{ __('Fill in all sections then save') }}</p>
             </div>
             <button type="submit" class="btn btn-primary rounded-pill px-5 shadow-sm">
-                <i class="bi bi-save me-2"></i>Save
+                <i class="bi bi-save me-2"></i>{{ __('Save') }}
             </button>
         </div>
 
         @if($errors->any())
         <div class="alert alert-danger alert-dismissible fade show rounded-3 shadow-sm mb-4">
             <i class="bi bi-exclamation-triangle-fill me-2"></i>
-            <strong>Please fix the errors below:</strong>
+            <strong>{{ __('Please fix the errors below:') }}</strong>
             <ul class="mb-0 mt-1 ps-3">
                 @foreach($errors->all() as $error)
                 <li class="small">{{ $error }}</li>
@@ -49,19 +49,19 @@
                     <div class="card-body p-2">
                         <div class="nav flex-column nav-pills" id="country-tabs" role="tablist">
                             <button class="nav-link active text-start mb-1" data-bs-toggle="pill" data-bs-target="#tab-general" type="button">
-                                <i class="bi bi-globe2 me-2"></i>General
+                                <i class="bi bi-globe2 me-2"></i>{{ __('General') }}
                             </button>
                             <button class="nav-link text-start mb-1" data-bs-toggle="pill" data-bs-target="#tab-content" type="button">
-                                <i class="bi bi-file-text me-2"></i>Content
+                                <i class="bi bi-file-text me-2"></i>{{ __('Content') }}
                             </button>
                             <button class="nav-link text-start mb-1" data-bs-toggle="pill" data-bs-target="#tab-universities" type="button">
-                                <i class="bi bi-building2 me-2"></i>Universities
+                                <i class="bi bi-building2 me-2"></i>{{ __('Universities') }}
                             </button>
                             <button class="nav-link text-start mb-1" data-bs-toggle="pill" data-bs-target="#tab-facts" type="button">
-                                <i class="bi bi-bar-chart-line me-2"></i>Key Facts
+                                <i class="bi bi-bar-chart-line me-2"></i>{{ __('Key Facts') }}
                             </button>
                             <button class="nav-link text-start mb-1" data-bs-toggle="pill" data-bs-target="#tab-services" type="button">
-                                <i class="bi bi-tools me-2"></i>Services
+                                <i class="bi bi-tools me-2"></i>{{ __('Services') }}
                             </button>
                         </div>
                     </div>
@@ -91,21 +91,21 @@
                     <div class="tab-pane fade show active" id="tab-general">
                         <div class="card shadow-sm border-0 rounded-4">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold mb-4 text-primary">General Information</h5>
+                                <h5 class="fw-bold mb-4 text-primary">{{ __('General Information') }}</h5>
 
                                 <div class="row g-3">
                                     <div class="col-md-3">
-                                        <label class="form-label small fw-bold">Flag Code</label>
+                                        <label class="form-label small fw-bold">{{ __('Flag Code') }}</label>
                                         <input type="text" name="flag" id="inp-flag"
                                             class="form-control text-center text-uppercase @error('flag') is-invalid @enderror"
                                             maxlength="2"
                                             value="{{ old('flag', $country->flag ?? '') }}"
                                             placeholder="US">
-                                        <div class="form-text">ISO 2-letter code (e.g. us, gb, de, fr)</div>
+                                        <div class="form-text">{{ __('ISO 2-letter code (e.g. us, gb, de, fr)') }}</div>
                                         @error('flag') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="col-md-4">
-                                        <label class="form-label small fw-bold">Tab Button Name</label>
+                                        <label class="form-label small fw-bold">{{ __('Tab Button Name') }}</label>
                                         <input type="text" name="tab_name" id="inp-tab-name"
                                             class="form-control @error('tab_name') is-invalid @enderror"
                                             value="{{ old('tab_name', $country->tab_name ?? '') }}"
@@ -113,7 +113,7 @@
                                         @error('tab_name') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="col-md-5">
-                                        <label class="form-label small fw-bold">Sort Order</label>
+                                        <label class="form-label small fw-bold">{{ __('Sort Order') }}</label>
                                         <input type="number" name="sort_order"
                                             class="form-control @error('sort_order') is-invalid @enderror"
                                             value="{{ old('sort_order', $country->sort_order ?? 0) }}"
@@ -121,16 +121,16 @@
                                         @error('sort_order') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="col-12">
-                                        <label class="form-label small fw-bold">Full Section Title</label>
+                                        <label class="form-label small fw-bold">{{ __('Full Section Title') }}</label>
                                         <input type="text" name="title"
                                             class="form-control @error('title') is-invalid @enderror"
                                             value="{{ old('title', $country->title ?? '') }}"
                                             placeholder="🇺🇸 Studying in the USA">
-                                        <div class="form-text">Include the flag emoji and full study-abroad heading.</div>
+                                        <div class="form-text">{{ __('Include the flag emoji and full study-abroad heading.') }}</div>
                                         @error('title') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="col-md-8">
-                                        <label class="form-label small fw-bold">Apply Button Text</label>
+                                        <label class="form-label small fw-bold">{{ __('Apply Button Text') }}</label>
                                         <input type="text" name="apply_btn_text" id="inp-apply"
                                             class="form-control @error('apply_btn_text') is-invalid @enderror"
                                             value="{{ old('apply_btn_text', $country->apply_btn_text ?? 'Apply Now') }}"
@@ -142,7 +142,7 @@
                                             <input class="form-check-input" type="checkbox" role="switch"
                                                 name="is_active" id="is_active" value="1"
                                                 {{ old('is_active', $country->is_active ?? true) ? 'checked' : '' }}>
-                                            <label class="form-check-label fw-bold" for="is_active">Active / Visible</label>
+                                            <label class="form-check-label fw-bold" for="is_active">{{ __('Active / Visible') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -154,10 +154,10 @@
                     <div class="tab-pane fade" id="tab-content">
                         <div class="card shadow-sm border-0 rounded-4">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold mb-4 text-primary">Country Description</h5>
+                                <h5 class="fw-bold mb-4 text-primary">{{ __('Country Description') }}</h5>
 
                                 <div class="mb-4">
-                                    <label class="form-label small fw-bold">Paragraph 1 <span class="text-danger">*</span></label>
+                                    <label class="form-label small fw-bold">{{ __('Paragraph 1') }} <span class="text-danger">*</span></label>
                                     <textarea name="desc_1" rows="5"
                                         class="form-control @error('desc_1') is-invalid @enderror"
                                         placeholder="Describe why students choose this country...">{{ old('desc_1', $country->desc_1 ?? '') }}</textarea>
@@ -165,7 +165,7 @@
                                 </div>
 
                                 <div class="mb-0">
-                                    <label class="form-label small fw-bold">Paragraph 2 <span class="text-muted">(optional)</span></label>
+                                    <label class="form-label small fw-bold">{{ __('Paragraph 2') }} <span class="text-muted">({{ __('optional') }})</span></label>
                                     <textarea name="desc_2" rows="4"
                                         class="form-control @error('desc_2') is-invalid @enderror"
                                         placeholder="Additional information...">{{ old('desc_2', $country->desc_2 ?? '') }}</textarea>
@@ -179,10 +179,10 @@
                     <div class="tab-pane fade" id="tab-universities">
                         <div class="card shadow-sm border-0 rounded-4">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold mb-2 text-primary">Partner Universities</h5>
-                                <p class="text-muted small mb-4">Enter university names separated by commas. Each name becomes a badge on the front page.</p>
+                                <h5 class="fw-bold mb-2 text-primary">{{ __('Partner Universities') }}</h5>
+                                <p class="text-muted small mb-4">{{ __('Enter university names separated by commas. Each name becomes a badge on the front page.') }}</p>
 
-                                <label class="form-label small fw-bold">Universities (comma-separated)</label>
+                                <label class="form-label small fw-bold">{{ __('Universities (comma-separated)') }}</label>
                                 <textarea name="universities" rows="5"
                                     class="form-control @error('universities') is-invalid @enderror"
                                     placeholder="MIT, Harvard University, Stanford University, Columbia University">{{ old('universities', $country->universities ?? '') }}</textarea>
@@ -197,18 +197,18 @@
                     <div class="tab-pane fade" id="tab-facts">
                         <div class="card shadow-sm border-0 rounded-4">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold mb-4 text-primary">Key Facts</h5>
-                                <p class="text-muted small mb-4">These 3 statistics appear in the blue box on the front page.</p>
+                                <h5 class="fw-bold mb-4 text-primary">{{ __('Key Facts') }}</h5>
+                                <p class="text-muted small mb-4">{{ __('These 3 statistics appear in the blue box on the front page.') }}</p>
 
                                 <div class="row g-4">
                                     @foreach([1,2,3] as $n)
                                     <div class="col-md-4">
                                         <div class="card bg-light border-0 rounded-3 p-3">
                                             <div class="text-center mb-3">
-                                                <span class="badge bg-primary rounded-pill px-3">Fact {{ $n }}</span>
+                                                <span class="badge bg-primary rounded-pill px-3">{{ __('Fact') }} {{ $n }}</span>
                                             </div>
                                             <div class="mb-2">
-                                                <label class="form-label small fw-bold text-center d-block">Value</label>
+                                                <label class="form-label small fw-bold text-center d-block">{{ __('Value') }}</label>
                                                 <input type="text" name="fact_{{ $n }}_value"
                                                     class="form-control text-center fw-bold @error('fact_'.$n.'_value') is-invalid @enderror"
                                                     value="{{ old('fact_'.$n.'_value', $country->{'fact_'.$n.'_value'} ?? '') }}"
@@ -216,7 +216,7 @@
                                                 @error('fact_'.$n.'_value') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                             </div>
                                             <div>
-                                                <label class="form-label small fw-bold text-center d-block">Label</label>
+                                                <label class="form-label small fw-bold text-center d-block">{{ __('Label') }}</label>
                                                 <input type="text" name="fact_{{ $n }}_label"
                                                     class="form-control text-center text-muted @error('fact_'.$n.'_label') is-invalid @enderror"
                                                     value="{{ old('fact_'.$n.'_label', $country->{'fact_'.$n.'_label'} ?? '') }}"
@@ -237,12 +237,12 @@
                             <div class="card-body p-4">
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <div>
-                                        <h5 class="fw-bold mb-0 text-primary">Our Services</h5>
-                                        <p class="text-muted small mb-0">Shown as feature cards on the left column of the country tab.</p>
+                                        <h5 class="fw-bold mb-0 text-primary">{{ __('Our Services') }}</h5>
+                                        <p class="text-muted small mb-0">{{ __('Shown as feature cards on the left column of the country tab.') }}</p>
                                     </div>
                                     <button type="button" id="add-service"
                                         class="btn btn-sm btn-outline-primary rounded-pill px-3">
-                                        <i class="bi bi-plus-lg me-1"></i>Add Service
+                                        <i class="bi bi-plus-lg me-1"></i>{{ __('Add Service') }}
                                     </button>
                                 </div>
 
@@ -259,14 +259,14 @@
                                     @forelse($svcs as $i => $svc)
                                     <div class="service-item border rounded-3 p-3 mb-3 bg-light">
                                         <div class="d-flex justify-content-between align-items-center mb-3">
-                                            <span class="badge bg-primary">Service #{{ $i + 1 }}</span>
+                                            <span class="badge bg-primary">{{ __('Service') }} #{{ $i + 1 }}</span>
                                             <button type="button" class="btn btn-link btn-sm text-danger p-0 remove-service">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
                                         <div class="row g-2">
                                             <div class="col-md-4">
-                                                <label class="small fw-bold">Icon class</label>
+                                                <label class="small fw-bold">{{ __('Icon class') }}</label>
                                                 <div class="input-group input-group-sm">
                                                     <span class="input-group-text"><i id="icon-preview-{{ $i }}" class="bi {{ $svc['icon'] ?? 'bi-gear' }}"></i></span>
                                                     <input type="text" name="services[{{ $i }}][icon]"
@@ -276,23 +276,23 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-8">
-                                                <label class="small fw-bold">Title</label>
+                                                <label class="small fw-bold">{{ __('Title') }}</label>
                                                 <input type="text" name="services[{{ $i }}][title]"
                                                     class="form-control form-control-sm"
                                                     value="{{ $svc['title'] ?? '' }}"
-                                                    placeholder="Service title">
+                                                    placeholder="{{ __('Service title') }}">
                                             </div>
                                             <div class="col-12">
-                                                <label class="small fw-bold">Description</label>
+                                                <label class="small fw-bold">{{ __('Description') }}</label>
                                                 <input type="text" name="services[{{ $i }}][desc]"
                                                     class="form-control form-control-sm"
                                                     value="{{ $svc['desc'] ?? '' }}"
-                                                    placeholder="Brief description...">
+                                                    placeholder="{{ __('Brief description...') }}">
                                             </div>
                                         </div>
                                     </div>
                                     @empty
-                                    <p class="text-muted small" id="no-services-msg">No services yet. Click "Add Service".</p>
+                                    <p class="text-muted small" id="no-services-msg">{{ __('No services yet. Click "Add Service".') }}</p>
                                     @endforelse
                                 </div>
                             </div>
@@ -373,24 +373,24 @@ document.addEventListener('DOMContentLoaded', function () {
         const idx = servicesList.querySelectorAll('.service-item').length;
         const tpl = `<div class="service-item border rounded-3 p-3 mb-3 bg-light">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-primary">Service #${idx + 1}</span>
+                <span class="badge bg-primary">{{ __('Service') }} #${idx + 1}</span>
                 <button type="button" class="btn btn-link btn-sm text-danger p-0 remove-service"><i class="bi bi-trash"></i></button>
             </div>
             <div class="row g-2">
                 <div class="col-md-4">
-                    <label class="small fw-bold">Icon class</label>
+                    <label class="small fw-bold">{{ __('Icon class') }}</label>
                     <div class="input-group input-group-sm">
                         <span class="input-group-text"><i id="icon-preview-${idx}" class="bi bi-gear"></i></span>
                         <input type="text" name="services[${idx}][icon]" class="form-control form-control-sm icon-input" placeholder="bi-mortarboard-fill">
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <label class="small fw-bold">Title</label>
-                    <input type="text" name="services[${idx}][title]" class="form-control form-control-sm" placeholder="Service title">
+                    <label class="small fw-bold">{{ __('Title') }}</label>
+                    <input type="text" name="services[${idx}][title]" class="form-control form-control-sm" placeholder="{{ __('Service title') }}">
                 </div>
                 <div class="col-12">
-                    <label class="small fw-bold">Description</label>
-                    <input type="text" name="services[${idx}][desc]" class="form-control form-control-sm" placeholder="Brief description...">
+                    <label class="small fw-bold">{{ __('Description') }}</label>
+                    <input type="text" name="services[${idx}][desc]" class="form-control form-control-sm" placeholder="{{ __('Brief description...') }}">
                 </div>
             </div>
         </div>`;

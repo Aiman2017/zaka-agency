@@ -78,7 +78,7 @@
                                         @error('phone') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="form-label small fw-bold">Email</label>
+                                        <label class="form-label small fw-bold">{{ __('Email') }}</label>
                                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                                             value="{{ old('email', $contact->email) }}">
                                         @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
@@ -105,19 +105,19 @@
                             <div class="card-body p-4">
                                 <h5 class="fw-bold mb-4 text-primary">{{ __('Social networks') }}</h5>
                                 <div class="mb-3">
-                                    <label class="form-label small fw-bold">Facebook URL</label>
+                                    <label class="form-label small fw-bold">{{ __('Facebook URL') }}</label>
                                     <input type="text" name="social_fb" class="form-control @error('social_fb') is-invalid @enderror"
                                         value="{{ old('social_fb', $contact->social_fb) }}" placeholder="https://...">
                                     @error('social_fb') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label small fw-bold">Instagram URL</label>
+                                    <label class="form-label small fw-bold">{{ __('Instagram URL') }}</label>
                                     <input type="text" name="social_ig" class="form-control @error('social_ig') is-invalid @enderror"
                                         value="{{ old('social_ig', $contact->social_ig) }}" placeholder="https://...">
                                     @error('social_ig') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </div>
                                 <div class="mb-0">
-                                    <label class="form-label small fw-bold">WhatsApp Number (без +)</label>
+                                    <label class="form-label small fw-bold">{{ __('WhatsApp Number (without +)') }}</label>
                                     <input type="text" name="social_wa" class="form-control @error('social_wa') is-invalid @enderror"
                                         value="{{ old('social_wa', $contact->social_wa) }}" placeholder="79001234567">
                                     @error('social_wa') <div class="invalid-feedback">{{ $message }}</div> @enderror
