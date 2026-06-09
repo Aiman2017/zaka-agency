@@ -86,9 +86,10 @@
 
         {{-- Pagination --}}
   
-   <div class="d-flex justify-content-center mt-5 mb-3" style="direction: ltr !important;">
+  <div class="d-flex justify-content-center mt-5 mx-3" style="direction: ltr !important;">
     {{ $posts->links() }}
 </div>
+
 
 
         @endif
