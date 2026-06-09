@@ -86,7 +86,7 @@
 
         {{-- Pagination --}}
   
-        <divclass="d-flex justify-content-center my-5" aria-label="Page navigation">
+        <divclass="d-flex justify-content-center mt-5 my-5" aria-label="Page navigation">
     {{ $posts->onEachSide(1)->links() }}
         </div>
 
