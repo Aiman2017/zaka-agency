@@ -86,16 +86,20 @@
 
         {{-- Pagination --}}
   
-  <div class="container mt-5">
-    <div class="d-flex flex-column align-items-center gap-3">
-        {{ $posts->links() }}
-    </div>
-</div>
-
-
-
+ @if($posts->hasPages())
+        <div class="mt-5 d-flex flex-column align-items-center gap-3">
+            <p class="text-muted small mb-0">
+                {{ __('Showing') }} <strong>{{ $posts->firstItem() }}</strong>
+                {{ __('to') }} <strong>{{ $posts->lastItem() }}</strong>
+                {{ __('of') }} <strong>{{ $posts->total() }}</strong>
+                {{ __('results') }}
+            </p>
+            <nav aria-label="{{ __('Blog pagination') }}">
+                {{ $posts->links() }}
+            </nav>
+        </div>
         @endif
-
+        @endif
     </div>
 </section>
 
