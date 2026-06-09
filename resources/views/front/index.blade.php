@@ -22,14 +22,14 @@
 @section('content')
     {{-- HERO SECTION --}}
     <x-front.hero-component type="home" badge="{{ $settings->hero_badge ?? __('🎓 Your Journey Starts Here') }}"
-        title="{{ $settings->hero_title ?? '' }}" desc="{{ $settings->hero_desc ?? '' }}"
-        cta1Text="{{ $settings->hero_cta1_text ?? __('Apply Now') }}" cta1Link="{{ $settings->hero_cta1_link ?? '#' }}"
-        cta2Text="{{ $settings->hero_cta2_text ?? __('Contact Us') }}" cta2Link="{{ $settings->hero_cta2_link ?? '#' }}"
+        title="{{ __($settings->hero_title) ?? '' }}" desc="{{ $settings->hero_desc ?? '' }}"
+        cta1Text="{{ __($settings->hero_cta1_text) ?? __('Apply Now') }}" cta1Link="{{ $settings->hero_cta1_link ?? '#' }}"
+        cta2Text="{{ __($settings->hero_cta2_text) ?? __('Contact Us') }}" cta2Link="{{ $settings->hero_cta2_link ?? '#' }}"
         visualTitle="{{ __($settings->hero_visual_title) ?? __('Your Global Education Hub') }}"
-        item1="{{ $settings->hero_visual_item1 ?? __('University Admission') }}"
-        item2="{{ $settings->hero_visual_item2 ?? __('Airport Pickup') }}"
-        item3="{{ $settings->hero_visual_item3 ?? __('Accommodation') }}"
-        item4="{{ $settings->hero_visual_item4 ?? __('Student Support') }}" />
+        item1="{{ __($settings->hero_visual_item1) ?? __('University Admission') }}"
+        item2="{{ __($settings->hero_visual_item2) ?? __('Airport Pickup') }}"
+        item3="{{ __($settings->hero_visual_item3) ?? __('Accommodation') }}"
+        item4="{{ __( $settings->hero_visual_item4) ?? __('Student Support') }}" />
 
     <section class="py-6 py-md-7" style="padding-top:90px;padding-bottom:90px;">
         <div class="container">
