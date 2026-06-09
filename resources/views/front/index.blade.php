@@ -149,7 +149,7 @@
             </p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
                 <a href="{{ $settings->cta_button1_link ?? route('front.contact') }}"
-                    class="hero-btn-primary">{{ __( $settings->cta_button1_text) ?? __('Apply Now') }}</a>
+                    class="hero-btn-primary"> __('Apply Now') }}</a>
             </div>
         </div>
     </section>
