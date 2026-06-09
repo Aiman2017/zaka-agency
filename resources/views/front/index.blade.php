@@ -131,7 +131,7 @@
                                 <strong>
                                     {{ $settings->stat4_value ?? '98%' }}
                                 </strong>
-                                <span>{{ $settings->stat4_label ?? __('Satisfaction Rate') }}</span>
+                                <span>{{ __($settings->stat4_label) ?? __('Satisfaction Rate') }}</span>
                             </div>
                         </div>
                     </div>
@@ -143,13 +143,13 @@
     <section style="background:linear-gradient(135deg,#1a6fc4,#0d1b2a);padding:80px 0;">
         <div class="container text-center">
             <h2 style="font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;color:#fff;margin-bottom:16px;">
-                {{ $settings->cta_title ?? __('Ready to Start Your Journey?') }}</h2>
+                {{ _($settings->cta_title) ?? __('Ready to Start Your Journey?') }}</h2>
             <p style="color:rgba(255,255,255,.75);font-size:clamp(.9rem,2vw,1.1rem);margin-bottom:36px;max-width:500px;margin-inline:auto;">
-                {{ $settings->cta_subtitle ?? __('Apply today and let our experts handle the rest.') }}
+                {{ __($settings->cta_subtitle) ?? __('Apply today and let our experts handle the rest.') }}
             </p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
                 <a href="{{ $settings->cta_button1_link ?? route('front.contact') }}"
-                    class="hero-btn-primary">{{ $settings->cta_button1_text ?? __('Apply Now') }}</a>
+                    class="hero-btn-primary">{{ __( $settings->cta_button1_text) ?? __('Apply Now') }}</a>
             </div>
         </div>
     </section>
