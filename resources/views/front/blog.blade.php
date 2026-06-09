@@ -86,13 +86,52 @@
 
         {{-- Pagination --}}
   
- @if($posts->hasPages())
-        <div class="mt-5 d-flex flex-column align-items-center gap-3">
-            <nav aria-label="{{ __('Blog pagination') }}">
-                {{ $posts->links() }}
-            </nav>
-        </div>
-        @endif
+ @if ($paginator->hasPages())
+    <nav>
+        <ul class="pagination justify-content-center">
+
+            {{-- Previous Page Link --}}
+            @if ($paginator->onFirstPage())
+                <li class="page-item disabled">
+                    <span class="page-link">&lsaquo;</span>
+                </li>
+            @else
+                <li class="page-item">
+                    <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">&lsaquo;</a>
+                </li>
+            @endif
+
+            {{-- Pagination Elements --}}
+            @foreach ($elements as $element)
+                @if (is_string($element))
+                    <li class="page-item disabled">
+                        <span class="page-link">{{ $element }}</span>
+                    </li>
+                @endif
+
+                @if (is_array($element))
+                    @foreach ($element as $page => $url)
+                        <li class="page-item {{ $page == $paginator->currentPage() ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                        </li>
+                    @endforeach
+                @endif
+            @endforeach
+
+            {{-- Next Page Link --}}
+            @if ($paginator->hasMorePages())
+                <li class="page-item">
+                    <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">&rsaquo;</a>
+                </li>
+            @else
+                <li class="page-item disabled">
+                    <span class="page-link">&rsaquo;</span>
+                </li>
+            @endif
+
+        </ul>
+    </nav>
+@endif
         @endif
     </div>
 </section>
