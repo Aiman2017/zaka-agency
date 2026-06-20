@@ -21,7 +21,7 @@
 
 @section('content')
     {{-- HERO SECTION --}}
-    <x-front.hero-component type="home" badge="🎓 {{ __($settings->hero_badge) ?? __('Your Journey Starts Here') }}"
+    <x-front.hero-component type="home" badge="🎓 {!! __($settings->hero_badge) ?? __('Your Journey Starts Here') !!}"
         title="{{ __($settings->hero_title) ?? '' }}" desc="{{ __($settings->hero_desc) ?? '' }}"
         cta1Text="{{ __($settings->hero_cta1_text) ?? __('Apply Now') }}" cta1Link="{{ $settings->hero_cta1_link ?? '#' }}"
         cta2Text="{{ __($settings->hero_cta2_text) ?? __('Contact Us') }}" cta2Link="{{ $settings->hero_cta2_link ?? '#' }}"
