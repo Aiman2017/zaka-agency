@@ -83,10 +83,10 @@
                                     class="bi {{ $settings->whyus_feature1_icon ?? 'bi-shield-check-fill' }} text-primary fs-5"></i>
                             </div>
                             <div>
-                                <h6 class="fw-700 mb-1">{{ $settings->whyus_feature1_title ?? __('Verified & Accredited') }}
+                                <h6 class="fw-700 mb-1">{{ __('$settings->whyus_feature1_title') ?? __('Verified & Accredited') }}
                                 </h6>
                                 <small
-                                    class="text-muted">{{ $settings->whyus_feature1_subtitle ?? __('Official partnerships with 50+ universities') }}</small>
+                                    class="text-muted">{{ __('$settings->whyus_feature1_subtitle') ?? __('Official partnerships with 50+ universities') }}</small>
                             </div>
                         </div>
                     </div>
