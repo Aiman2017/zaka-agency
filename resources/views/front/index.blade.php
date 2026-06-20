@@ -25,7 +25,7 @@
         title="{{ __($settings->hero_title) ?? '' }}" desc="{{ __($settings->hero_desc) ?? '' }}"
         cta1Text="{{ __($settings->hero_cta1_text) ?? __('Apply Now') }}" cta1Link="{{ $settings->hero_cta1_link ?? '#' }}"
         cta2Text="{{ __($settings->hero_cta2_text) ?? __('Contact Us') }}" cta2Link="{{ $settings->hero_cta2_link ?? '#' }}"
-        visualTitle="{{ __($settings->hero_visual_title) ?? __('Your Global Education Hub') }}"
+        visualTitle="{!! __($settings->hero_visual_title) ?? __('Your Global Education Hub') !!}"
         item1="{{ __($settings->hero_visual_item1) ?? __('University Admission') }}"
         item2="{{ __($settings->hero_visual_item2) ?? __('Airport Pickup') }}"
         item3="{{ __($settings->hero_visual_item3) ?? __('Accommodation') }}"
