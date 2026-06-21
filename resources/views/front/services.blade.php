@@ -168,7 +168,7 @@
                     <div class="col-12">
                         <div class="country-feature"><i class="bi bi-check-circle-fill"></i>
                             <div>
-                                <h6>{{ __($service->accommodation_feature2_title }}</h6>
+                                <h6>{{ __($service->accommodation_feature2_title ?? 'Settling-In Support' }}</h6>
                                 <p>{{ __($service->accommodation_feature2_text ?? 'Help with bank account opening, local SIM cards, and city orientation.') }}</p>
                             </div>
                         </div>
