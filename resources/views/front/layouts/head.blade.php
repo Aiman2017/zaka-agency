@@ -20,7 +20,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-
+<meta name="google-site-verification" content="31FTfBItUHNYB7uo9ONy1OWUI2nUomidWcvKqJ5rl2c" />
     {{-- ── Title & Description ── --}}
     <title>@yield('seo_title', $defaultTitle)</title>
     <meta name="description" content="@yield('seo_description', $defaultDesc)" />
