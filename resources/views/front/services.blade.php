@@ -1,6 +1,4 @@
-إليك الكود الكامل مع تصحيح القوس المفقود في سطر `Settling-In Support`:
 
-```html
 @extends('front.layouts.main')
 
 @section('seo_title', __('Our Services | University Admission, Airport Pickup & Accommodation – Zaka-Agency'))@section('seo_description', __('Zaka-Agency offers complete study abroad services: university admission support, airport pickup, student accommodation, and one-on-one consultation in 12+ countries.'))
@@ -171,7 +169,7 @@
                     <div class="col-12">
                         <div class="country-feature"><i class="bi bi-check-circle-fill"></i>
                             <div>
-                                <h6>{{ __($service->accommodation_feature2_title ?? 'Settling-In Support') }}</h6>
+                                <h6>{!! __($service->accommodation_feature2_title ?? 'Settling-In Support') !!}</h6>
                                 <p>{{ __($service->accommodation_feature2_text ?? 'Help with bank account opening, local SIM cards, and city orientation.') }}</p>
                             </div>
                         </div>
