@@ -8,7 +8,7 @@
 @endpush
 
 @section('content'){{-- Настройки Hero секции --}}<x-front.hero-component type="services" title="{{ __($service['hero_title'] ?? 'Services Overview') }}"desc="{{ __($service['hero_desc'] ?? 'We offer a wide range of services...') }}"cta1Text="{{ __($service['hero_cta1_text'] ?? 'Get Started') }}" cta1Link="{{ route('front.services') }}"cta2Text="{{ __($service['hero_cta2_text'] ?? 'Learn More') }}" cta2Link="{{ route('front.services') }}" />
-dd(__('Settling-In Support'));
+@dd(__('Settling-In Support'));
 <!-- SERVICE 1: ADMISSION -->
 <section id="admission" style="padding:90px 0;">
     <div class="container">
