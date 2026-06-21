@@ -54,7 +54,7 @@
                 </h1>
 
                 <p class="{{ $isHomeLayout ? 'hero-desc' : '' }}">
-                    {{ $desc }}
+                    {!! $desc !!}
                 </p>
 
                 @if ($isHomeLayout)
