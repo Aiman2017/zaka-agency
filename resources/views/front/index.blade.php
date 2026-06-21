@@ -50,7 +50,7 @@
                             <h4>{{ __($service['title']) }}</h4>
                             <p>{{ __($service['description']) }}</p>
                             <a href="{{ $service['link'] ?? '/services' }}" class="text-primary fw-600 mt-3 d-inline-block">
-                                {{ __($service['link_text']) ?? __('Learn More') }} <i class="bi bi-arrow-right"></i>
+                                {{ __($service['link_text']) ?? __('Learn more') }} <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
                     </div>
