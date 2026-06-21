@@ -1,6 +1,3 @@
-لقد قمت بتعديل الكود وإضافة دالة الترجمة `__()` لجميع المتغيرات والنصوص البديلة (fallbacks)، مع الحفاظ على الروابط والـ routes وأسماء الكلاسات والأيقونات كما هي دون تغيير لضمان عدم تعطل وظائف الصفحة وتصميمها:
-
-```html
 @extends('front.layouts.main')
 
 @section('seo_title', __('Our Services | University Admission, Airport Pickup & Accommodation – Zaka-Agency'))@section('seo_description', __('Zaka-Agency offers complete study abroad services: university admission support, airport pickup, student accommodation, and one-on-one consultation in 12+ countries.'))
