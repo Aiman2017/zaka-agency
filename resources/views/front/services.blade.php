@@ -169,12 +169,7 @@
                     <div class="col-12">
                         <div class="country-feature"><i class="bi bi-check-circle-fill"></i>
                             <div>
-                                @dd(
-    $service->accommodation_feature2_title,
-    '['.$service->accommodation_feature2_title.']',
-    strlen($service->accommodation_feature2_title),
-    bin2hex($service->accommodation_feature2_title)
-);
+                                @dd(app()->getLocale());
                                 <h6>{{ __($service->accommodation_feature2_title ?? 'Settling-In Support') }}</h6>
                                 <p>{{ __($service->accommodation_feature2_text ?? 'Help with bank account opening, local SIM cards, and city orientation.') }}</p>
                             </div>
