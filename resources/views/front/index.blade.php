@@ -81,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="btn-primary-custom mt-4 d-inline-block">{{ __('About Us') }}</a>
+                    <a href="/about" class="btn-primary-custom mt-4 d-inline-block">{{ __('About Us') }}</a>
                 </div>
 
                 <div class="col-lg-7">
