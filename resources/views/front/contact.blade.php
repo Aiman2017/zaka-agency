@@ -1,6 +1,3 @@
-إليك الكود الكامل لصفحة اتصل بنا (Contact Us) مع إضافة دالة الترجمة `__()` لجميع المتغيرات:
-
-```html
 @extends('front.layouts.main')
 
 @section('seo_title', __('Contact Us | Get in Touch with Zaka-Agency'))
