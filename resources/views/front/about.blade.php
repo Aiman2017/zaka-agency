@@ -27,7 +27,7 @@
     @endphp
 
     <x-front.hero-component type="about" :title="__('About Us')"
-        :desc="__('We are here to answer your questions and help you start your journey.')" cta1Link="{{ route('front.about') }}"
+        :desc="__('We're here to answer your questions and help you start your journey.')" cta1Link="{{ route('front.about') }}"
         :cta2Text="__('About Us')" cta2Link="{{ route('front.about') }}" />
 
     <!-- COMPANY DESCRIPTION -->
