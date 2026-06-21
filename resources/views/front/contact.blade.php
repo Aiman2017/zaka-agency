@@ -1,3 +1,6 @@
+إليك الكود الكامل لصفحة اتصل بنا (Contact Us) مع إضافة دالة الترجمة `__()` لجميع المتغيرات:
+
+```html
 @extends('front.layouts.main')
 
 @section('seo_title', __('Contact Us | Get in Touch with Zaka-Agency'))
@@ -16,7 +19,7 @@
 @endpush
 
 @section('content')
-    <x-front.hero-component type="contact" title="{{ $contact->hero_title }}" desc="{{ $contact->hero_desc }}"
+    <x-front.hero-component type="contact" title="{{ __($contact->hero_title) }}" desc="{{ __($contact->hero_desc) }}"
         cta1Link="{{ route('front.contact') }}" cta2Text="{{ __('Contact Us') }}" cta2Link="{{ route('front.contact') }}" />
 
     <!-- CONTACT SECTION -->
@@ -36,7 +39,7 @@
                             <div>
                                 <h6>{{ __('Phone / WhatsApp') }}</h6>
                                 <p><a href="tel:{{ $contact->phone }}"
-                                        class="text-muted text-decoration-none">{{ $contact->phone }}</a></p>
+                                        class="text-muted text-decoration-none">{{ __($contact->phone) }}</a></p>
                             </div>
                         </div>
                     @endif
@@ -47,7 +50,7 @@
                             <div>
                                 <h6>{{ __('Email Address') }}</h6>
                                 <p><a href="mailto:{{ $contact->email }}"
-                                        class="text-muted text-decoration-none">{{ $contact->email }}</a></p>
+                                        class="text-muted text-decoration-none">{{ __($contact->email) }}</a></p>
                             </div>
                         </div>
                     @endif
@@ -57,7 +60,7 @@
                             <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
                             <div>
                                 <h6>{{ __('Main Office') }}</h6>
-                                <p>{{ $contact->address }}</p>
+                                <p>{{ __($contact->address) }}</p>
                             </div>
                         </div>
                     @endif
@@ -67,7 +70,7 @@
                             <div class="contact-info-icon"><i class="bi bi-clock-fill"></i></div>
                             <div>
                                 <h6>{{ __('Working Hours') }}</h6>
-                                <p>{!! nl2br(e($contact->working_hours)) !!}</p>
+                                <p>{!! nl2br(e(__($contact->working_hours))) !!}</p>
                             </div>
                         </div>
                     @endif
@@ -164,7 +167,7 @@
                                     <select id="contactCountry" class="form-select">
                                         <option value="">{{ __('-- Select Country --') }}</option>
                                         @foreach ($countries as $country)
-                                            <option value="{{ $country->tab_name }}">{{ $country->tab_name }}</option>
+                                            <option value="{{ $country->tab_name }}">{{ __($country->tab_name) }}</option>
                                         @endforeach
                                         <option>{{ __('Other') }}</option>
                                     </select>
@@ -232,9 +235,9 @@
                         @foreach ($contact->faq as $item)
                             @if (!empty($item['question']))
                                 <div class="faq-item">
-                                    <div class="faq-question">{{ $item['question'] }} <i class="bi bi-chevron-down"></i>
+                                    <div class="faq-question">{{ __($item['question']) }} <i class="bi bi-chevron-down"></i>
                                     </div>
-                                    <div class="faq-answer">{{ $item['answer'] ?? '' }}</div>
+                                    <div class="faq-answer">{{ __($item['answer'] ?? '') }}</div>
                                 </div>
                             @endif
                         @endforeach
@@ -308,3 +311,4 @@
         });
     </script>
 @endsection
+```
