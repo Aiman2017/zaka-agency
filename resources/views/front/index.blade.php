@@ -5,17 +5,13 @@
 
 @push('json_ld')
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Zaka-Agency",
-  "url": "{{ config('app.url') }}",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "{{ config('app.url') }}/countries",
-    "query-input": "required name=search_term_string"
-  }
-}
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'WebSite',
+    'name' => 'Zaka-Agency',
+    'url' => url('/' . app()->getLocale()),
+    'inLanguage' => app()->getLocale(),
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
 </script>
 @endpush
 
@@ -29,7 +25,12 @@
         item1="{{ __($settings->hero_visual_item1) ?? __('University Admission') }}"
         item2="{{ __($settings->hero_visual_item2) ?? __('Airport Pickup') }}"
         item3="{{ __($settings->hero_visual_item3) ?? __('Accommodation') }}"
-        item4="{{ __($settings->hero_visual_item4) ?? __('Student Support') }}" />
+        item4="{{ __($settings->hero_visual_item4) ?? __('Student Support') }}"
+        :stats="[
+            ['value' => __($settings->stat1_value) ?: '5000+', 'label' => __($settings->stat1_label) ?: __('Students Helped')],
+            ['value' => __($settings->stat2_value) ?: '50+', 'label' => __($settings->stat2_label) ?: __('Partner Universities')],
+            ['value' => __($settings->stat3_value) ?: '12+', 'label' => __($settings->stat3_label) ?: __('Countries')],
+        ]" />
 
     <section class="py-6 py-md-7" style="padding-top:90px;padding-bottom:90px;">
         <div class="container">

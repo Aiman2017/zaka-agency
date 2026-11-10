@@ -308,4 +308,3 @@
         });
     </script>
 @endsection
-```
