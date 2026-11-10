@@ -4,7 +4,7 @@
       <img src="{{ asset('assets/images/logo.jpeg') }}" alt="Zaka-agency Logo" width="40" height="40" class="brand-logo rounded-circle">
       <span class="brand-text">Zaka-<span>agency</span></span>
     </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="{{ __('Menu') }}">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
@@ -17,26 +17,21 @@
         <li class="nav-item"><a class="nav-link {{ request()->routeIs('front.blog') || request()->routeIs('front.blog.show') ? 'active' : '' }}" href="{{ route('front.blog') }}">{{ __('Blog') }}</a></li>
         <li class="nav-item"><a class="nav-link {{ request()->routeIs('front.contact') ? 'active' : '' }}" href="{{ route('front.contact') }}">{{ __('Contact') }}</a></li>
       </ul>
-      <div class="d-flex align-items-center gap-2 me-3">
-        {{-- Dark Mode Toggle --}}
-        <button id="darkToggle" title="{{ __('Toggle dark mode') }}" aria-label="{{ __('Toggle dark mode') }}">
-          <i class="bi bi-moon-stars-fill" id="darkToggleIcon"></i>
-        </button>
-
+      <div class="d-flex align-items-center gap-2 mx-xl-3 my-3 my-xl-0">
         {{-- Language Switcher --}}
         <div class="lang-switcher dropdown">
-          <button class="dropdown-toggle" data-bs-toggle="dropdown">
+          <button class="dropdown-toggle" data-bs-toggle="dropdown" aria-label="Language">
             <span id="activeLang">{{ strtoupper(app()->getLocale()) }}</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item {{ app()->getLocale() === 'en' ? 'active' : '' }}"
-                   href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}">🇬🇧 English</a></li>
+                   href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"><span class="opacity-75 me-2">EN</span>English</a></li>
             <li><a class="dropdown-item {{ app()->getLocale() === 'ar' ? 'active' : '' }}"
-                   href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}">🇸🇦 العربية</a></li>
+                   href="{{ LaravelLocalization::getLocalizedURL('ar', null, [], true) }}"><span class="opacity-75 me-2">AR</span>العربية</a></li>
             <li><a class="dropdown-item {{ app()->getLocale() === 'fr' ? 'active' : '' }}"
-                   href="{{ LaravelLocalization::getLocalizedURL('fr', null, [], true) }}">🇫🇷 Français</a></li>
+                   href="{{ LaravelLocalization::getLocalizedURL('fr', null, [], true) }}"><span class="opacity-75 me-2">FR</span>Français</a></li>
             <li><a class="dropdown-item {{ app()->getLocale() === 'ru' ? 'active' : '' }}"
-                   href="{{ LaravelLocalization::getLocalizedURL('ru', null, [], true) }}">🇷🇺 Русский</a></li>
+                   href="{{ LaravelLocalization::getLocalizedURL('ru', null, [], true) }}"><span class="opacity-75 me-2">RU</span>Русский</a></li>
           </ul>
         </div>
       </div>

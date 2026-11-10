@@ -13,6 +13,8 @@
     'item2' => '',
     'item3' => '',
     'item4' => '',
+
+    'stats' => [],
 ])
 
 @php
@@ -25,7 +27,7 @@
         @if (!$isHomeLayout)
             <nav aria-label="breadcrumb" class="mb-3">
                 <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('front.home') }}">{{ __('Home') }}</a></li>
                     <li class="breadcrumb-item active">{!! $title !!}</li>
                 </ol>
             </nav>
@@ -67,11 +69,13 @@
                         @endif
                     </div>
 
-                    <div class="hero-stats">
-                        <div class="hero-stat"><strong>5,000+</strong><span>Students Helped</span></div>
-                        <div class="hero-stat"><strong>50+</strong><span>Partner Universities</span></div>
-                        <div class="hero-stat"><strong>12+</strong><span>Countries</span></div>
-                    </div>
+                    @if (!empty($stats))
+                        <div class="hero-stats">
+                            @foreach ($stats as $stat)
+                                <div class="hero-stat"><strong>{{ $stat['value'] }}</strong><span>{{ $stat['label'] }}</span></div>
+                            @endforeach
+                        </div>
+                    @endif
                 @endif
             </div>
 

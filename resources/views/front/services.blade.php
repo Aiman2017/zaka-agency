@@ -286,4 +286,3 @@
 </section>
 
 @endsection
-```
